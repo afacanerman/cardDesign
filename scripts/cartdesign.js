@@ -33,11 +33,12 @@ var CardDesign = (function () {
         this.front_canvas = new fabric.Canvas("frontCanvas", { width: this.options.width, height:  this.options.height }); 
         this.back_canvas = new fabric.Canvas("backCanvas", { width: this.options.width, height:  this.options.height });
 
-        // bind front_canvas events
+        // bind canvas events
         this.front_canvas.on("mouse:up", self.activateConsole());
         this.back_canvas.on("mouse:up", self.activateConsole());
-        // bind back_canvas events
 
+        this.injectGoogleFonts();
+        
         //Init Settings Buttons
         this.generateOptionsBar();
         this.generateSubOptionsBar();
@@ -49,18 +50,45 @@ var CardDesign = (function () {
 		this.back_canvas.loadFromJSON(this.options.data.back, function(){
 		  self.back_canvas.renderAll();
 		});
+
+		window.onload = this.pageLoaded();
     }
 
     var consoleActivation = function(){
     	var self = this;
 		var activeCanvas = this.getActiveCanvas();
 		var activeObject = activeCanvas.getActiveObject();
+
 	    if(activeObject){
-	    	//show options area according to the type of active object
 	    	self.subMenuProcess(activeObject.type);
-	    	console.log(activeObject.type);
 	    }
     };
+
+	CardDesign.prototype.pageLoaded = function(){
+		var self = this;
+		return function(){
+			self.setGoogleFonts(self.options.googleFontFamilies);
+		};
+	};
+
+    CardDesign.prototype.injectGoogleFonts = function(){
+		//http://fonts.googleapis.com/css?family=Ubuntu|Amatic SC
+    	var head = document.getElementsByTagName('head')[0];
+    	var s = document.createElement('script');
+    	s.setAttribute('src', 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
+    	head.appendChild(s);
+ 	};
+
+ 	CardDesign.prototype.setGoogleFonts = function(googleFontFamilies){
+			if(!googleFontFamilies || typeof(googleFontFamilies) != "object") return;
+			
+			debugger;
+			WebFont.load({
+			    google: {
+			      families: googleFontFamilies
+			    }
+			});
+ 	}
 
 	CardDesign.prototype.activateConsole = function() {
 		var self = this;
@@ -228,13 +256,27 @@ var CardDesign = (function () {
 			self.hidePopup();
 		}
 	}
+	var addOptions = function(obj, families){
+		if( !obj || (!families && families.length === 0) ){
+			return;
+		}
+
+		for (var i = 0; i < families.length; i++) {
+			var option = document.createElement("option");
+			option.text = families[i];
+			option.value = families[i];
+			obj.add(option);
+		};
+	};
 
 	CardDesign.prototype.generateSubOptionsBar = function() {
 		var self = this;
 		var elementId = this.options.optionAreaId;
-		//document.getElementById(elementId).innerHTML += this.subOptionsBar;
 
 		var fontFamily = document.getElementById("font-family");
+		debugger;
+		addOptions(fontFamily, this.options.googleFontFamilies);
+
 		var fontSize = document.getElementById("font-size");
 		var alignLeft = document.getElementById("align-left");
 		var alignCenter = document.getElementById("align-center");
@@ -319,7 +361,7 @@ var CardDesign = (function () {
 	CardDesign.prototype.addText = function(activeCanvas, customText) {
 	    var text = customText;
 
-	    var textSample = new fabric.Text(text.slice(0, getRandomInt(0, text.length)), {
+	    var textSample = new fabric.Text(text, {
 	      left: getRandomInt(100, 200),
 	      top: getRandomInt(100, 200),
 	      fontFamily: 'helvetica',
