@@ -1,0 +1,4 @@
+.card-design-area {
+	width: 100%;
+	background-color: #fdfdfd;
+}
