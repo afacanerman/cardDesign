@@ -1,58 +1,72 @@
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 .clearfix:after {
-	clear: both;
-	display: block;
-	content: " ";
-	height: 0px;
-	visibility: hidden;
+    clear: both;
+    display: block;
+    content: " ";
+    height: 0px;
+    visibility: hidden;
 }
+
 .clearfix {
-	display: inline-block;
+    display: inline-block;
 }
+
+
 /* Hide these rules from IE-mac \*/
+
 * html .clearfix {
-	height: 1%;
+    height: 1%;
 }
+
 .clearfix {
-	display: block;
+    display: block;
 }
-.card-design, .content-area {
-	width: 1200px;
-	margin: 0 auto;
+
+.card-design,
+.content-area {
+    width: 1200px;
+    margin: 0 auto;
 }
+
 .demoArea {
-	margin-top: 110px;
+    margin-top: 110px;
 }
 
 .option-area {
-	width: 100%;
-	padding: 0 10px;
-	background-color: #e5e5e5;
-	clear: left;
-	position: absolute;
-	left: 0px;
-	top: 0px;
+    width: 100%;
+    padding: 0 10px;
+    background-color: #e5e5e5;
+    clear: left;
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
-.card-design .options-left,.card-design .options-right {
-	width: 50%;
-	height: auto;
-	float: left;
+
+.card-design .options-left,
+.card-design .options-right {
+    width: 50%;
+    height: auto;
+    float: left;
 }
+
 .card-design ul {
-	margin: 0px;
-	padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
+
 .card-design ul li {
-	width: auto;
-	height: 30px;
-	display: inline-block;
-	margin: 15px 5px 15px 0px;
+    width: auto;
+    height: 30px;
+    display: inline-block;
+    margin: 15px 5px 15px 0px;
 }
+
 .card-design ul li button {
-	padding: 6px 12px;
-	color: #fff;
+    padding: 6px 12px;
+    color: #fff;
     background-color: #428bca;
     border-color: #357ebd;
     white-space: nowrap;
@@ -63,200 +77,230 @@
     background-image: none;
     outline: none;
 }
+
 .card-design ul li button.btn.orange {
-	background-color: #f28b00;
+    background-color: #f28b00;
 }
+
 .card-design ul li a {
-	width: auto;
-	height: 30px;
-	display: block;
+    width: auto;
+    height: 30px;
+    display: block;
 }
+
 .card-design ul li a.icon {
-	width: 30px;
-	height: 30px;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 60%;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 60%;
 }
+
 .card-design .options-left ul li.rotate a {
-	background-image: url(../images/icons/rotate.png);
+    background-image: url(../images/icons/rotate.png);
 }
+
 .card-design li.addText a {
-	background-image: url(../images/icons/rotate.png);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 60%;
+    background-image: url(../images/icons/rotate.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 60%;
 }
+
 
 /* Sub options*/
 
 .sub-options {
-	width: 100%;
-	height: 40px;
-	background-color: #efefef;
-	position: absolute;
-	top: 60px;
-	left: 0px;
+    width: 100%;
+    height: 40px;
+    background-color: #efefef;
+    position: absolute;
+    top: 60px;
+    left: 0px;
 }
 
 .card-design .options-left ul li.align-left a {
-	background-image: url(../images/icons/align-left.png);
+    background-image: url(../images/icons/align-left.png);
 }
 
 .card-design .options-left ul li.align-center a {
-	background-image: url(../images/icons/align-center.png);
+    background-image: url(../images/icons/align-center.png);
 }
 
 .card-design .options-left ul li.align-right a {
-	background-image: url(../images/icons/align-right.png);
+    background-image: url(../images/icons/align-right.png);
 }
 
 .card-design .options-left ul li.text-bold a {
-	background-image: url(../images/icons/bold.png);
+    background-image: url(../images/icons/bold.png);
 }
 
 .card-design .options-left ul li.text-italic a {
-	background-image: url(../images/icons/italic.png);
+    background-image: url(../images/icons/italic.png);
 }
 
 .card-design .options-left ul li.text-underline a {
-	background-image: url(../images/icons/underline.png);
+    background-image: url(../images/icons/underline.png);
 }
 
 .card-design .options-left ul li.edit-text a {
-	background-image: url(../images/icons/edit.png);
+    background-image: url(../images/icons/edit.png);
 }
 
 .card-design .options-left ul li.delete a {
-	background-image: url(../images/icons/delete.png);
+    background-image: url(../images/icons/delete.png);
 }
 
 .sub-options ul li {
-	margin: 5px 5px 5px 0px;
-	float: left;
+    margin: 5px 5px 5px 0px;
+    float: left;
 }
 
 .sub-options .slct {
-	height: 30px;
-	border: 1px solid #e5e5e5;
+    height: 30px;
+    border: 1px solid #e5e5e5;
 }
 
 #globalOptions {
-	display: none;
+    display: none;
 }
 
 #textOptions {
-	display: none;
+    display: none;
 }
 
+
 /* Sub options */
+
 
 /* Canvas Area */
 
 #canvasArea .canvas-container:last-child {
-	display: none;
+    display: none;
 }
+
 
 /* Popup */
+
 .popup-content {
-	width: 100%;
-	height: 100%;
-	display: none;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	background-image: url(../images/icons/opacity.png);
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-image: url(../images/icons/opacity.png);
 }
-#cardDesignPopup, #cardDesignImagePopup {
-	width: 600px;
-	height: auto;
-	display: block;
-	margin: 100px auto 0;
-	background-color: #FFF;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	overflow: hidden;
+
+#cardDesignPopup,
+#cardDesignImagePopup {
+    width: 600px;
+    height: auto;
+    display: block;
+    margin: 100px auto 0;
+    background-color: #FFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
 }
+
 .context {
-	width: 100%;
-	display: block;
-	padding: 20px;
-	border-bottom: 1px solid #e5e5e5;
-	font-family: Arial;
+    width: 100%;
+    display: block;
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    font-family: Arial;
 }
+
 #cardDesignPopup textarea {
-	width: 560px;
-	height: 70px;
-	margin: 20px;
-	padding: 10px;
-	border: 1px solid #e5e5e5;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	resize: none;
-}
-#cardDesignPopup .buttons, #cardDesignImagePopup .buttons {
-	display: block;
-	margin-top: 20px;
-	padding: 20px;
-	border-top: 1px solid #e5e5e5;
+    width: 560px;
+    height: 70px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    resize: none;
 }
 
-#cardDesignPopup .buttons .btn, #cardDesignImagePopup .buttons .btn {
-	width: auto;
-	height: auto;
-	margin-right: 5px;
-	padding: 6px 12px;
-	border-color: transparent;
-	color: #FFF;
-	cursor: pointer;
+#cardDesignPopup .buttons,
+#cardDesignImagePopup .buttons {
+    display: block;
+    margin-top: 20px;
+    padding: 20px;
+    border-top: 1px solid #e5e5e5;
 }
 
-#cardDesignPopup .buttons .btn.warning, #cardDesignImagePopup .buttons .btn.warning {
-	background-color: #900;
+#cardDesignPopup .buttons .btn,
+#cardDesignImagePopup .buttons .btn {
+    width: auto;
+    height: auto;
+    margin-right: 5px;
+    padding: 6px 12px;
+    border-color: transparent;
+    color: #FFF;
+    cursor: pointer;
 }
 
-#cardDesignPopup .buttons .btn.done, #cardDesignImagePopup .buttons .btn.done {
-	background-color: #428bca;
+#cardDesignPopup .buttons .btn.warning,
+#cardDesignImagePopup .buttons .btn.warning {
+    background-color: #900;
+}
+
+#cardDesignPopup .buttons .btn.done,
+#cardDesignImagePopup .buttons .btn.done {
+    background-color: #428bca;
 }
 
 #editCustomText {
-	display: none;
+    display: none;
 }
 
 .popup-content.edit #addCustomText {
-	display: none;
+    display: none;
 }
 
 .popup-content.edit #editCustomText {
-	display: inline-block;
+    display: inline-block;
 }
 
-.popup-content.image #cardDesignPopup{
-	display: none;
+.popup-content.image #cardDesignPopup {
+    display: none;
 }
 
 #cardDesignImagePopup {
-	display: none;
+    display: none;
 }
 
 .popup-content.image #cardDesignImagePopup {
-	display: block;
+    display: block;
 }
 
 #cardDesignImagePopup .images {
-	padding: 20px;
-}
-#cardDesignImagePopup img {
-	width: 80px;
-	height: 80px;
-	float: left;
-	margin-right: 10px;
-	margin-bottom: 20px;
-	cursor: pointer;
+    padding: 20px;
 }
 
-#cardDesignImagePopup img:hover, #cardDesignImagePopup img.active {
-	border: 1px solid #e5e5e5;
+#cardDesignImagePopup img {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+#cardDesignImagePopup img:hover,
+#cardDesignImagePopup img.active {
+    border: 1px solid #e5e5e5;
+}
+
+.singleupload {
+    background: url(empty_bg.png);
+    border:1px solid #ccc;
+    text-align: center;
+    width: 92px;
+    height: 92px;
+    line-height: 92px;
 }
