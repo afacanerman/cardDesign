@@ -45,11 +45,16 @@
     top: 0px;
 }
 
-.card-design .options-left,
-.card-design .options-right {
-    width: 50%;
+.card-design .options-left {
+    width: 40%;
     height: auto;
     float: left;
+}
+.card-design .options-right {
+    width: 60%;
+    height: auto;
+    float: left;
+    text-align: right;
 }
 
 .card-design ul {
@@ -119,36 +124,74 @@
     left: 0px;
 }
 
-.card-design .options-left ul li.align-left a {
+.card-design .options-right ul li.align-left a {
     background-image: url(../images/icons/align-left.png);
 }
 
-.card-design .options-left ul li.align-center a {
+.card-design .options-right ul li.align-center a {
     background-image: url(../images/icons/align-center.png);
 }
 
-.card-design .options-left ul li.align-right a {
+.card-design .options-right ul li.align-right a {
     background-image: url(../images/icons/align-right.png);
 }
 
-.card-design .options-left ul li.text-bold a {
+.card-design .options-right ul li.text-bold a {
     background-image: url(../images/icons/bold.png);
 }
 
-.card-design .options-left ul li.text-italic a {
+.card-design .options-right ul li.text-italic a {
     background-image: url(../images/icons/italic.png);
 }
 
-.card-design .options-left ul li.text-underline a {
+.card-design .options-right ul li.text-underline a {
     background-image: url(../images/icons/underline.png);
 }
 
-.card-design .options-left ul li.edit-text a {
+.card-design .options-right ul li.edit-text a {
     background-image: url(../images/icons/edit.png);
+}
+
+.card-design .options-left ul li.copy-object a {
+    background-image: url(../images/icons/copy.png);
+}
+
+.card-design .options-left ul li.cut-object a {
+    background-image: url(../images/icons/cut.png);
+}
+
+.card-design .options-left ul li.paste-object a {
+    background-image: url(../images/icons/paste.png);
 }
 
 .card-design .options-left ul li.delete a {
     background-image: url(../images/icons/delete.png);
+}
+
+.card-design .options-left ul li#opacity {
+    padding-left: 40px;
+    position: relative;
+    background-color: #FFF;
+    padding: 3px 10px 5px 35px;
+    border-radius: 3px;
+}
+
+.card-design .options-left ul li input {
+     float: left;
+}
+.card-design .options-left ul li#opacity:before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    display: block;
+    padding-left: 40px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    background-size: 40%;
+    background-image: url(../images/icons/opacit.png);
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .sub-options ul li {
@@ -168,8 +211,35 @@
 #textOptions {
     display: none;
 }
+#colorArea {
+    display: none;
+    height: 40px;
+    position: relative;
+}
+#colorArea ul li {
+    width: 20px;
+    height: 20px;
+    margin: 10px 5px;
+    margin-right: 0px;
+    border: 1px solid #999;
+}
 
-
+#color-palette {
+    width: 155px;
+    height: auto;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    background-color: #ededed;
+}
+#color-palette li {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid #999;
+}
 /* Sub options */
 
 
