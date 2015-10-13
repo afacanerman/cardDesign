@@ -7254,10 +7254,11 @@ var CardDesign = (function() {
         var self = this;
 
         this.optionsBar = '<div class="option-area clearfix"><div class="content-area"><div class="options-left"><ul><li id="rotateFront"><button class="btn orange" title="Metin Ekle">Ön Yüz</button></li><li id="rotateBack"><button class="btn orange" title="Metin Ekle">Arka Yüz</button></li></ul></div><div class="options-right"><ul><li id="addText"><button title="Metin Ekle">Metin Ekle</button></li><li id="AddImage"><button title="Resim Ekle">Resim Ekle</button></li></ul></div></div></div>';
-        this.subOptionsBar = '<div class="sub-options"><div class="content-area"><div class="options-left"><div id="textOptions"><ul><li class="family"><select id="font-family" class="slct"> <option value="arial">Arial</option> <option value="helvetica" selected="">Helvetica</option> <option value="myriad pro">Myriad Pro</option> <option value="delicious">Delicious</option> <option value="verdana">Verdana</option> <option value="georgia">Georgia</option> <option value="courier">Courier</option> <option value="comic sans ms">Comic Sans MS</option> <option value="impact">Impact</option> <option value="monaco">Monaco</option> <option value="optima">Optima</option> <option value="hoefler text">Hoefler Text</option> <option value="plaster">Plaster</option> <option value="engagement">Engagement</option> </select></li><li class="size"><select id="font-size" class="slct"> <option value="10">10</option> <option value="12" selected="">12</option> <option value="14">14</option> <option value="16">16</option> <option value="18">18</option> <option value="24">24</option> <option value="36">36</option> <option value="48">48</option> <option value="72">72</option> <option value="120">120</option> <option value="150">150</option> <option value="180">180</option> <option value="200">200</option> <option value="250">250</option> </select></li><li id="align-left" class="align-left"><a class="icon" href="javascirpt:;"></a></li><li id="align-center" class="align-center"><a class="icon" href="javascirpt:;"></a></li><li id="align-right" class="align-right"><a class="icon" href="javascirpt:;"></a></li><li id="text-bold" class="text-bold"><a class="icon" href="javascirpt:;"></a></li><li id="text-italic" class="text-italic"><a class="icon" href="javascirpt:;"></a></li><li id="text-underline" class="text-underline"><a class="icon" href="javascirpt:;"></a></li><li id="edit-text" class="edit-text"><a class="icon" href="javascirpt:;"></a></li></ul></div><div id="globalOptions"><ul><li id="delete" class="delete"><a class="icon" href="javascirpt:;"></a></li></ul></div></div><div class="options-right"></div></div></div>';
+        this.subOptionsBar = '<div class="sub-options"> <div class="content-area"> <div class="options-left"> <div id="globalOptions"> <ul> <li id="copy-object" class="copy-object"><a class="icon" href="javascirpt:;"></a></li><li id="cut-object" class="cut-object"><a class="icon" href="javascirpt:;"></a></li><li id="paste-object" class="paste-object"><a class="icon" href="javascirpt:;"></a></li><li id="opacity"><input id="object-opacity" type="range" value="100"/></li><li id="delete" class="delete"><a class="icon" href="javascirpt:;"></a></li></ul> </div></div><div class="options-right"> <div id="textOptions"> <ul> <li class="family"> <select id="font-family" class="slct"> <option value="arial">Arial</option> <option value="helvetica" selected="">Helvetica</option> <option value="myriad pro">Myriad Pro</option> <option value="delicious">Delicious</option> <option value="verdana">Verdana</option> <option value="georgia">Georgia</option> <option value="courier">Courier</option> <option value="comic sans ms">Comic Sans MS</option> <option value="impact">Impact</option> <option value="monaco">Monaco</option> <option value="optima">Optima</option> <option value="hoefler text">Hoefler Text</option> <option value="plaster">Plaster</option> <option value="engagement">Engagement</option> </select> </li><li class="size"> <select id="font-size" class="slct"> <option value="10">10</option> <option value="12" selected="">12</option> <option value="14">14</option> <option value="16">16</option> <option value="18">18</option> <option value="24">24</option> <option value="36">36</option> <option value="48">48</option> <option value="72">72</option> <option value="120">120</option> <option value="150">150</option> <option value="180">180</option> <option value="200">200</option> <option value="250">250</option> </select> </li><li id="align-left" class="align-left"><a class="icon" href="javascirpt:;"></a></li><li id="align-center" class="align-center"><a class="icon" href="javascirpt:;"></a></li><li id="align-right" class="align-right"><a class="icon" href="javascirpt:;"></a></li><li id="text-bold" class="text-bold"><a class="icon" href="javascirpt:;"></a></li><li id="text-italic" class="text-italic"><a class="icon" href="javascirpt:;"></a></li><li id="text-underline" class="text-underline"><a class="icon" href="javascirpt:;"></a></li><li id="edit-text" class="edit-text"><a class="icon" href="javascirpt:;"></a></li></ul></div><div id="colorArea"><ul><li id="color-area" class="color-area"><a class="icon" href="javascirpt:;"></a><ul id="color-palette"></ul></li></ul></div></div></div></div>';
         this.popup = '<div class="popup-content"> <div id="cardDesignPopup"> <span class="context">Metin Ekle</span> <textarea id="custom-text" placeholder="Metin Girin"></textarea> <div class="buttons"><button class="btn done" id="editCustomText">Düzenle</button><button class="btn done" id="addCustomText">Ekle</button><button class="btn warning" id="cancelAddCustomText">İptal</button></div></div><div id="cardDesignImagePopup"> <span class="context">Resim Ekle</span> <div class="images clearfix"> <img src="images/svg/1.svg"> <img src="images/svg/2.svg"> <img src="images/svg/3.svg"> <img src="images/svg/4.svg"> <img src="images/svg/5.svg"> <img src="images/svg/6.svg"> <img src="images/svg/7.svg"> <img src="images/svg/8.svg"> <img src="images/svg/9.svg"> <img src="images/svg/10.svg"> </div><div class="buttons"><button class="btn done" id="addCustomImage">Ekle</button><button class="btn warning" id="cancelAddCustomImage">İptal</button> {imageUploadForm} </div></div></div>';
         this.imageUploadForm = '<div id="uploadbox" onClick="singleupload_input.click();" class="singleupload">Select File</div><input type="file" id="singleupload_input" style="display:none;" name="img" value=""/>'
         this.options = options;
+        this.copyArray = [];
 
         if (!options.urls.saveUrl) {
             alert('Kayit servis urli girilmelidir!');
@@ -7406,7 +7407,7 @@ var CardDesign = (function() {
         var self = this,
             coord = {
                 left: 100,
-                top: 100
+                top: 100 
             };
 
         fabric.Image.fromURL(imageName, function(image) {
@@ -7632,7 +7633,14 @@ var CardDesign = (function() {
         var editText = document.getElementById("edit-text");
         var editCustomText = document.getElementById("editCustomText");
         var textArea = document.getElementById("custom-text");
+        var opacityArea = document.getElementById("object-opacity");
+        var copyArea = document.getElementById("copy-object");
+        var pasteArea = document.getElementById("paste-object");
+        var cutArea = document.getElementById("cut-object");
+        var colorArea = document.getElementById("color-area");
+        var colorPalette = document.getElementById("color-palette");
 
+        this.appendToColor();
         fontFamily.onchange = function() {
             self.setFontFamily(fontFamily.value);
         }
@@ -7667,6 +7675,33 @@ var CardDesign = (function() {
             self.editText(textArea.value);
             self.hidePopup();
         }
+        opacityArea.onchange = function() {
+            var opacity = opacityArea.value;
+            self.setOpacity(opacity);
+        }
+        copyArea.onclick = function() {
+            self.copyObject();
+        }
+        cutArea.onclick = function() {
+            self.cutObject();
+        }
+        pasteArea.onclick = function() {
+            self.pasteObject();
+        }
+        colorArea.getElementsByTagName("a")[0].onclick = function() {
+            if(colorPalette.style.display != "block") {
+                colorPalette.style.display = "block";
+            }else {
+                colorPalette.style.display = "none";
+            }
+        }
+        for (var i = 0; i < colorPalette.getElementsByTagName("li").length; i++) {
+            colorPalette.getElementsByTagName("li")[i].onclick = function() {
+                self.setFill(this.style.backgroundColor);
+                colorArea.style.backgroundColor = this.style.backgroundColor;
+                colorPalette.style.display = "none";
+            }
+        }
     }
 
     CardDesign.prototype.subMenuProcess = function(type) {
@@ -7674,9 +7709,15 @@ var CardDesign = (function() {
         var textOptions = document.getElementById("textOptions");
         var globalOptions = document.getElementById("globalOptions");
         var textArea = document.getElementById("custom-text");
+        var colorOptions = document.getElementById("colorArea");
+        var colorArea = document.getElementById("color-area");
+        var selectedBgColor = this.getFill();
+        colorArea.style.backgroundColor = selectedBgColor;
+
         switch (type) {
             case "text":
-                textOptions.style.display = "block";
+                textOptions.style.display = "inline-block";
+                colorOptions.style.display = "inline-block";
                 globalOptions.style.display = "block";
                 textArea.value = self.getText();
                 return;
@@ -7684,12 +7725,14 @@ var CardDesign = (function() {
             case "image":
             case "rect":
                 globalOptions.style.display = "block";
+                colorOptions.style.display = "inline-block";
                 textOptions.style.display = "none";
                 return;
 
             default:
                 globalOptions.style.display = "none";
                 textOptions.style.display = "none";
+                colorOptions.style.display = "none";
                 return;
         }
     }
@@ -7795,8 +7838,51 @@ var CardDesign = (function() {
         this.setActiveStyle('textDecoration', value);
     };
 
+    CardDesign.prototype.getOpacity = function() {
+        return this.getActiveStyle('opacity') * 100;
+    };
+    CardDesign.prototype.setOpacity = function(value) {
+        this.setActiveStyle('opacity', parseInt(value, 10) / 100);
+    };
     // ---------- TEXT OPERATIONS END ---------------
 
+    // ---------- GLOBAL OPERATIONS -----------------
+    CardDesign.prototype.copyObject = function() {
+        var activeCanvas = this.getActiveCanvas();
+        var object = fabric.util.object.clone(activeCanvas.getActiveObject());
+        this.copyArray[0] = object;    
+    }
+    CardDesign.prototype.cutObject = function() {
+        this.copyObject();
+        this.removeSelected();    
+    }
+    CardDesign.prototype.pasteObject = function() {
+        var activeCanvas = this.getActiveCanvas();
+        var object = this.copyArray[0];
+        object.set("top", object.top+5);
+        object.set("left", object.left+5);
+        activeCanvas.add(object);
+        this.copyObject();
+    }
+    CardDesign.prototype.getFill = function() {
+        return this.getActiveStyle('fill');
+    };
+    CardDesign.prototype.setFill = function(value) {
+        this.setActiveStyle('fill', value);
+    };
+
+    CardDesign.prototype.appendToColor = function() {
+        var colors = this.options.colors;
+        var colorArea = document.getElementById("color-area");
+        var colorPalette = document.getElementById("color-palette");
+
+        for(var i = 0; i < colors.length; i++) {
+            var colorElement = document.createElement("li");
+            colorElement.style.backgroundColor = colors[i];
+            colorPalette.appendChild(colorElement);
+        }
+    }
+    // ---------- GLOBAL OPERATIONS END -------------
     CardDesign.prototype.toJSON = function() {
         var model = {
             front: "",
