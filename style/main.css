@@ -112,7 +112,38 @@
     background-size: 60%;
 }
 
+.card-design li#addShapes {
+    position: relative;
+}
+.card-design li#addShapes ul {
+    display: none;
+    position: absolute;
+    background-color: #357ebd;
+    color: #FFF;
+    top: 100%;
+    right: 0px;
+    z-index: 2;
+}
 
+.card-design li#addShapes ul li {
+    width: 100%;
+    height: 30px;
+    margin: 0px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.card-design li#addShapes ul li button {
+    width: 100%;
+    display: block;
+}
+
+.card-design li#addShapes:hover ul {
+    display: block;
+}
+.card-design li#addShapes ul li button:hover {
+    background-color: #357ebd;
+}
 /* Sub options*/
 
 .sub-options {
@@ -263,7 +294,8 @@
 }
 
 #cardDesignPopup,
-#cardDesignImagePopup {
+#cardDesignImagePopup,
+#previewPopup {
     width: 600px;
     height: auto;
     display: block;
@@ -296,7 +328,8 @@
 }
 
 #cardDesignPopup .buttons,
-#cardDesignImagePopup .buttons {
+#cardDesignImagePopup .buttons,
+#previewPopup .buttons {
     display: block;
     margin-top: 20px;
     padding: 20px;
@@ -304,7 +337,8 @@
 }
 
 #cardDesignPopup .buttons .btn,
-#cardDesignImagePopup .buttons .btn {
+#cardDesignImagePopup .buttons .btn,
+#previewPopup .buttons .btn {
     width: auto;
     height: auto;
     margin-right: 5px;
@@ -315,12 +349,14 @@
 }
 
 #cardDesignPopup .buttons .btn.warning,
-#cardDesignImagePopup .buttons .btn.warning {
+#cardDesignImagePopup .buttons .btn.warning,
+#previewPopup .buttons .btn.warning {
     background-color: #900;
 }
 
 #cardDesignPopup .buttons .btn.done,
-#cardDesignImagePopup .buttons .btn.done {
+#cardDesignImagePopup .buttons .btn.done,
+#previewPopup .buttons .btn.done {
     background-color: #428bca;
 }
 
@@ -340,8 +376,26 @@
     display: none;
 }
 
-#cardDesignImagePopup {
+#cardDesignImagePopup, #previewPopup, .preview #cardDesignPopup {
     display: none;
+}
+
+.preview #previewPopup {
+    display: block;
+}
+
+.preview #previewPopup .preview-image-area {
+    padding: 20px;
+}
+
+.preview #previewPopup img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.edit #cardDesignPopup {
+    display: block;
 }
 
 .popup-content.image #cardDesignImagePopup {
