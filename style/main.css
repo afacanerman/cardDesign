@@ -522,18 +522,12 @@
 
 #upload-area .singleupload {
     background: url(empty_bg.png);
-    border:1px solid #ccc;
     text-align: center;
     width: 200px;
-    height: 50px;
-    line-height: 50px;
     margin-left: 20px;
     cursor: pointer;
 }
 
-#upload-area .singleupload:hover {
-    border: 1px solid #428bca;
-}
 .checkbox-area {
     padding: 0 20px;
 }
