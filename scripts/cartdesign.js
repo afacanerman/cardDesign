@@ -8314,7 +8314,7 @@ var CardDesign = (function() {
                 console.log(json.server_response);
             },
             error: function(xhr, errmsg, err) {
-                //alert(xhr.status + ": " + xhr.responseText);
+                console.log(xhr.status + ": " + xhr.responseText);
             }
         });
     }
