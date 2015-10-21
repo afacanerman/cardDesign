@@ -7259,6 +7259,7 @@ var CardDesign = (function() {
         this.popup = '<div class="popup-content"> <div id="cardDesignPopup"> <span class="context">Metin Ekle</span> <textarea id="custom-text" placeholder="Metin Girin"></textarea> <div class="buttons"><button class="btn done" id="editCustomText">Düzenle</button><button class="btn done" id="addCustomText">Ekle</button><button class="btn warning" id="cancelAddCustomText">İptal</button></div></div><div id="cardDesignImagePopup"> <span class="context">Resim Ekle</span> <div id="svgContainer" class="images clearfix"></div><div class="buttons"><button class="btn done" id="addCustomImage">Ekle</button> </div> {imageUploadForm}</div><div id="previewPopup"><span class="context">Ön İzleme</span><div class="preview-image-area"><img src="" id="frontPreview"/><img src="" id="backPreview"/></div><div class="checkbox-area"><input type="checkbox" id="accept"/><span class="accept-text">Tasarımı Onaylıyorum.</span><span id="accept-result" class="accept-result"></span></div><div class="buttons"><button class="btn done" id="sendPreviewImage">Gönder</button><button class="btn warning" id="cancelPreviewImage">Düzenlemeye Devam Et</button></div></div></div>';
         this.imageUploadForm = '<div id="upload-area"><span class="context">Resim Seç</span><form method="POST" name="form" id="imageUploadForm" enctype="multipart/form-data"> <input type="file" id="img" name="img"/> <div class="buttons"> <input type="submit" class="btn done" id="addSelectedImage" value="Ekle"/> <button class="btn warning" id="cancelAddCustomImage">İptal</button> </div></form></div>'
         this.endButtons = '<div class="endButtons"><ul><li id="preview"><button class="btn orange">Bitti Ön izlemeyi Gör</button></li></li></ul></div>';
+
         this.options = options;
         this.copyArray = [];
 
@@ -7293,6 +7294,7 @@ var CardDesign = (function() {
 
         this.front_canvas.on('mouse:over', function(e) {
             var rightClickMenu = document.getElementById("rightClickMenu");
+           
             if (rightClickMenu.style.display == "none") {
                 //self.front_canvas.setActiveObject(e.target);
                 //self.front_canvas.renderAll();
@@ -7766,7 +7768,6 @@ var CardDesign = (function() {
     }
 
     CardDesign.prototype.activateImage = function( imagePopup ){
-        debugger;
         for (var i = 0; i < imagePopup.getElementsByTagName("img").length; i++) {
             imagePopup.getElementsByTagName("img")[i].removeAttribute("class");
             imagePopup.getElementsByTagName("img")[i].onclick = function() {
@@ -7900,7 +7901,9 @@ var CardDesign = (function() {
             } else {
                 colorPalette.style.display = "none";
             }
+
         }
+
         for (var i = 0; i < colorPalette.getElementsByTagName("li").length; i++) {
             colorPalette.getElementsByTagName("li")[i].onclick = function() {
                 self.setFill(this.style.backgroundColor);
@@ -8122,10 +8125,12 @@ var CardDesign = (function() {
         var object = fabric.util.object.clone(activeCanvas.getActiveObject());
         this.copyArray[0] = object;
     }
+
     CardDesign.prototype.cutObject = function() {
         this.copyObject();
         this.removeSelected();
     }
+
     CardDesign.prototype.pasteObject = function() {
         var activeCanvas = this.getActiveCanvas();
         var object = this.copyArray[0];
@@ -8218,8 +8223,6 @@ var CardDesign = (function() {
         }
         return jsons;
     };
-
-
 
     function getRandomLeftTop() {
         var offset = 50;
