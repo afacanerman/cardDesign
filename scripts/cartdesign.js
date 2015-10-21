@@ -1123,7 +1123,7 @@ var fabric = fabric || {
         }
 
         function g(t, e, i) {
-            e[i] && e[i].toSVG && t.push('	<pattern x="0" y="0" id="', i, 'Pattern" ', 'width="', e[i].source.width, '" height="', e[i].source.height, '" patternUnits="userSpaceOnUse">\n', '		<image x="0" y="0" ', 'width="', e[i].source.width, '" height="', e[i].source.height, '" xlink:href="', e[i].source.src, '"></image>\n	</pattern>\n')
+            e[i] && e[i].toSVG && t.push('  <pattern x="0" y="0" id="', i, 'Pattern" ', 'width="', e[i].source.width, '" height="', e[i].source.height, '" patternUnits="userSpaceOnUse">\n', '     <image x="0" y="0" ', 'width="', e[i].source.width, '" height="', e[i].source.height, '" xlink:href="', e[i].source.src, '"></image>\n  </pattern>\n')
         }
         var p = t.fabric || (t.fabric = {}),
             v = p.util.object.extend,
@@ -1381,7 +1381,7 @@ var fabric = fabric || {
             },
             createSVGFontFacesMarkup: function(t) {
                 for (var e = "", i = 0, r = t.length; r > i; i++) "text" === t[i].type && t[i].path && (e += ["@font-face {", "font-family: ", t[i].fontFamily, "; ", "src: url('", t[i].path, "')", "}\n"].join(""));
-                return e && (e = ['	<style type="text/css">', "<![CDATA[", e, "]]>", "</style>\n"].join("")), e
+                return e && (e = [' <style type="text/css">', "<![CDATA[", e, "]]>", "</style>\n"].join("")), e
             },
             createSVGRefElementsMarkup: function(t) {
                 var e = [];
@@ -1934,7 +1934,7 @@ var fabric = fabric || {
             toSVG: function(t) {
                 var e = 40,
                     r = 40;
-                return t.width && t.height && (e = 100 * i((Math.abs(this.offsetX) + this.blur) / t.width, 2) + 20, r = 100 * i((Math.abs(this.offsetY) + this.blur) / t.height, 2) + 20), '<filter id="SVGID_' + this.id + '" y="-' + r + '%" height="' + (100 + 2 * r) + '%" x="-' + e + '%" width="' + (100 + 2 * e) + '%" >\n	<feGaussianBlur in="SourceAlpha" stdDeviation="' + i(this.blur ? this.blur / 2 : 0, 3) + '"></feGaussianBlur>\n	<feOffset dx="' + this.offsetX + '" dy="' + this.offsetY + '" result="oBlur" ></feOffset>\n	<feFlood flood-color="' + this.color + '"/>\n	<feComposite in2="oBlur" operator="in" />\n	<feMerge>\n		<feMergeNode></feMergeNode>\n		<feMergeNode in="SourceGraphic"></feMergeNode>\n	</feMerge>\n</filter>\n'
+                return t.width && t.height && (e = 100 * i((Math.abs(this.offsetX) + this.blur) / t.width, 2) + 20, r = 100 * i((Math.abs(this.offsetY) + this.blur) / t.height, 2) + 20), '<filter id="SVGID_' + this.id + '" y="-' + r + '%" height="' + (100 + 2 * r) + '%" x="-' + e + '%" width="' + (100 + 2 * e) + '%" >\n   <feGaussianBlur in="SourceAlpha" stdDeviation="' + i(this.blur ? this.blur / 2 : 0, 3) + '"></feGaussianBlur>\n <feOffset dx="' + this.offsetX + '" dy="' + this.offsetY + '" result="oBlur" ></feOffset>\n <feFlood flood-color="' + this.color + '"/>\n   <feComposite in2="oBlur" operator="in" />\n <feMerge>\n     <feMergeNode></feMergeNode>\n       <feMergeNode in="SourceGraphic"></feMergeNode>\n    </feMerge>\n</filter>\n'
             },
             toObject: function() {
                 if (this.includeDefaultValues) return {
@@ -4892,7 +4892,7 @@ var fabric = fabric || {
                     r = "translate(" + i.x + " " + i.y + ")",
                     n = this._createBaseSVGMarkup();
                 n.push("<g ", 'style="', this.getSvgStyles(), '" ', 'transform="', this.getSvgTransformMatrix(), r, this.getSvgTransform(), '" ', ">\n");
-                for (var s = 0, o = e.length; o > s; s++) n.push("	", e[s].toSVG(t));
+                for (var s = 0, o = e.length; o > s; s++) n.push("  ", e[s].toSVG(t));
                 return n.push("</g>\n"), t ? t(n.join("")) : n.join("")
             },
             toString: function() {
@@ -5104,7 +5104,7 @@ var fabric = fabric || {
                 toSVG: function(t) {
                     var e = this._createBaseSVGMarkup();
                     e.push('<g transform="', this.getSvgTransform(), this.getSvgTransformMatrix(), '" style="', this.getSvgFilter(), '">\n');
-                    for (var i = 0, r = this._objects.length; r > i; i++) e.push("	", this._objects[i].toSVG(t));
+                    for (var i = 0, r = this._objects.length; r > i; i++) e.push("  ", this._objects[i].toSVG(t));
                     return e.push("</g>\n"), t ? t(e.join("")) : e.join("")
                 },
                 get: function(t) {
@@ -6037,7 +6037,7 @@ var fabric = fabric || {
                 }
             },
             _wrapSVGTextAndBg: function(t, e) {
-                t.push('	<g transform="', this.getSvgTransform(), this.getSvgTransformMatrix(), '">\n', e.textBgRects.join(""), "		<text ", this.fontFamily ? 'font-family="' + this.fontFamily.replace(/"/g, "'") + '" ' : "", this.fontSize ? 'font-size="' + this.fontSize + '" ' : "", this.fontStyle ? 'font-style="' + this.fontStyle + '" ' : "", this.fontWeight ? 'font-weight="' + this.fontWeight + '" ' : "", this.textDecoration ? 'text-decoration="' + this.textDecoration + '" ' : "", 'style="', this.getSvgStyles(), '" >', e.textSpans.join(""), "</text>\n", "	</g>\n")
+                t.push('    <g transform="', this.getSvgTransform(), this.getSvgTransformMatrix(), '">\n', e.textBgRects.join(""), "        <text ", this.fontFamily ? 'font-family="' + this.fontFamily.replace(/"/g, "'") + '" ' : "", this.fontSize ? 'font-size="' + this.fontSize + '" ' : "", this.fontStyle ? 'font-style="' + this.fontStyle + '" ' : "", this.fontWeight ? 'font-weight="' + this.fontWeight + '" ' : "", this.textDecoration ? 'text-decoration="' + this.textDecoration + '" ' : "", 'style="', this.getSvgStyles(), '" >', e.textSpans.join(""), "</text>\n", " </g>\n")
             },
             _getSVGTextAndBg: function(t, e) {
                 var i = [],
@@ -6055,10 +6055,10 @@ var fabric = fabric || {
                 i.push('<tspan x="', n(s + this._getLineLeftOffset(this._getLineWidth(this.ctx, t)), o), '" ', 'y="', n(h, o), '" ', this._getFillAttributes(this.fill), ">", e.util.string.escapeXml(this._textLines[t]), "</tspan>")
             },
             _setSVGTextLineBg: function(t, e, i, r, s) {
-                t.push("		<rect ", this._getFillAttributes(this.textBackgroundColor), ' x="', n(i + this._getLineLeftOffset(this._getLineWidth(this.ctx, e)), o), '" y="', n(s - this.height / 2, o), '" width="', n(this._getLineWidth(this.ctx, e), o), '" height="', n(this._getHeightOfLine(this.ctx, e) / this.lineHeight, o), '"></rect>\n')
+                t.push("        <rect ", this._getFillAttributes(this.textBackgroundColor), ' x="', n(i + this._getLineLeftOffset(this._getLineWidth(this.ctx, e)), o), '" y="', n(s - this.height / 2, o), '" width="', n(this._getLineWidth(this.ctx, e), o), '" height="', n(this._getHeightOfLine(this.ctx, e) / this.lineHeight, o), '"></rect>\n')
             },
             _setSVGBg: function(t) {
-                this.backgroundColor && t.push("		<rect ", this._getFillAttributes(this.backgroundColor), ' x="', n(-this.width / 2, o), '" y="', n(-this.height / 2, o), '" width="', n(this.width, o), '" height="', n(this.height, o), '"></rect>\n')
+                this.backgroundColor && t.push("        <rect ", this._getFillAttributes(this.backgroundColor), ' x="', n(-this.width / 2, o), '" y="', n(-this.height / 2, o), '" width="', n(this.width, o), '" height="', n(this.height, o), '"></rect>\n')
             },
             _getFillAttributes: function(t) {
                 var i = t && "string" == typeof t ? new e.Color(t) : "";
@@ -7256,11 +7256,13 @@ var CardDesign = (function() {
         this.canvasLine = '<i class="line-left"></i><i class="line-right"></i><i class="line-top"></i><i class="line-bottom"></i><ul id="rightClickMenu"><li class="if-image">Resmi Düzenle</li><li class="if-text">Metni Düzenle</li><li class="with-border">Sil</li><li>Kes</li><li>Kopyala</li><li>Yapıştır</li><li class="with-border">Kopyasını Ekle</li><li>En öne getir</li><li>En arkaya ekle</li></ul>';
         this.optionsBar = '<div class="option-area clearfix"><div class="content-area"><div class="options-left"><ul><li id="rotateFront"><button class="btn orange" title="Ön Yüz">Ön Yüz</button></li><li id="rotateBack"><button class="btn orange" title="Arka Yüz">Arka Yüz</button></li></ul></div><div class="options-right"><ul><li id="addText"><button title="Metin Ekle">Metin Ekle</button></li><li id="addShapes"><button title="Şekil Ekle">Şekil Ekle</button><ul id="shapeArea"><li><button id="addRectangle" title="Kare">Kare</button></li><li><button id="addCircle" title="Daire">Daire</button></li><li><button id="addTriangle" title="Üçgen">Üçgen</button></li><li><button id="addLine" title="Çizgi">Çizgi</button></li></ul></li><li id="AddImage"><button title="Resim Ekle">Resim Ekle</button></li></ul></div></div></div>';
         this.subOptionsBar = '<div class="sub-options"> <div class="content-area"> <div class="options-left"> <div id="globalOptions"> <ul> <li class="operations"> <select id="operations" class="slct"> <option value="" selected="">İşlemler</option> <option value="delete">Sil</option> <option value="cut">Kes</option> <option value="copy">Kopyala</option> <option value="paste">Yapıştır</option> <option value="addCopy">Kopyasını Ekle</option> <option value="moveToFront">En Öne Getir</option> <option value="moveToBack">En Arkaya Ekle</option> </select> </li><li id="copy-object" class="copy-object"><a class="icon" href="javascirpt:;"></a></li><li id="cut-object" class="cut-object"><a class="icon" href="javascirpt:;"></a></li><li id="paste-object" class="paste-object"><a class="icon" href="javascirpt:;"></a></li><li id="opacity"><input id="object-opacity" type="range" value="100"/></li><li id="delete" class="delete"><a class="icon" href="javascirpt:;"></a></li></ul> </div></div><div class="options-right"> <div id="textOptions"> <ul> <li class="family"> <select id="font-family" class="slct"> <option value="arial">Arial</option> <option value="helvetica" selected="">Helvetica</option> <option value="myriad pro">Myriad Pro</option> <option value="delicious">Delicious</option> <option value="verdana">Verdana</option> <option value="georgia">Georgia</option> <option value="courier">Courier</option> <option value="comic sans ms">Comic Sans MS</option> <option value="impact">Impact</option> <option value="monaco">Monaco</option> <option value="optima">Optima</option> <option value="hoefler text">Hoefler Text</option> <option value="plaster">Plaster</option> <option value="engagement">Engagement</option> </select> </li><li class="size"> <select id="font-size" class="slct"> <option value="10">10</option> <option value="12" selected="">12</option> <option value="14">14</option> <option value="16">16</option> <option value="18">18</option> <option value="24">24</option> <option value="36">36</option> <option value="48">48</option> <option value="72">72</option> <option value="120">120</option> <option value="150">150</option> <option value="180">180</option> <option value="200">200</option> <option value="250">250</option> </select> </li><li id="align-left" class="align-left"><a class="icon" href="javascirpt:;"></a></li><li id="align-center" class="align-center"><a class="icon" href="javascirpt:;"></a></li><li id="align-right" class="align-right"><a class="icon" href="javascirpt:;"></a></li><li id="text-bold" class="text-bold"><a class="icon" href="javascirpt:;"></a></li><li id="text-italic" class="text-italic"><a class="icon" href="javascirpt:;"></a></li><li id="text-underline" class="text-underline"><a class="icon" href="javascirpt:;"></a></li><li id="edit-text" class="edit-text"><a class="icon" href="javascirpt:;"></a></li></ul> </div><div id="colorArea"> <ul> <li id="color-area" class="color-area"> <a class="icon" href="javascirpt:;"></a> <ul id="color-palette"></ul> </li></ul> </div></div></div></div>';
+        this.imageUploadForm = '<div id="upload-area"><span class="context">Resim Seç</span><form method="POST" name="form" id="imageUploadForm" enctype="multipart/form-data"> <input type="file" id="img" name="img"/> <div class="buttons"> <input type="submit" class="btn done" id="addSelectedImage" value="Ekle"/> <button class="btn warning" id="cancelAddCustomImage">İptal</button> </div></form></div>'
         this.popup = '<div class="popup-content"> <div id="cardDesignPopup"> <span class="context">Metin Ekle</span> <textarea id="custom-text" placeholder="Metin Girin"></textarea> <div class="buttons"><button class="btn done" id="editCustomText">Düzenle</button><button class="btn done" id="addCustomText">Ekle</button><button class="btn warning" id="cancelAddCustomText">İptal</button></div></div><div id="cardDesignImagePopup"> <span class="context">Resim Ekle</span> <div class="images clearfix"> <img src="images/svg/1.svg"> <img src="images/svg/2.svg"> <img src="images/svg/3.svg"> <img src="images/svg/4.svg"> <img src="images/svg/5.svg"> <img src="images/svg/6.svg"> <img src="images/svg/7.svg"> <img src="images/svg/8.svg"> <img src="images/svg/9.svg"> <img src="images/svg/10.svg"> </div><div class="buttons"><button class="btn done" id="addCustomImage">Ekle</button> </div> {imageUploadForm}</div><div id="previewPopup"><span class="context">Ön İzleme</span><div class="preview-image-area"><img src="" id="frontPreview"/><img src="" id="backPreview"/></div><div class="checkbox-area"><input type="checkbox" id="accept"/><span class="accept-text">Tasarımı Onaylıyorum.</span><span id="accept-result" class="accept-result"></span></div><div class="buttons"><button class="btn done" id="sendPreviewImage">Gönder</button><button class="btn warning" id="cancelPreviewImage">Düzenlemeye Devam Et</button></div></div></div>';
-        this.imageUploadForm = '<div id="upload-area"><span class="context">Resim Seç</span><input type="file" id="singleupload_input" class="singleupload" name="img" value=""/><div class="buttons"><button class="btn done" id="addSelectedImage">Ekle</button><button class="btn warning" id="cancelAddCustomImage">İptal</button></div></div>'
         this.endButtons = '<div class="endButtons"><ul><li id="preview"><button class="btn orange">Bitti Ön izlemeyi Gör</button></li></li></ul></div>';
+
         this.options = options;
         this.copyArray = [];
+
 
         if (!options.urls.saveUrl) {
             alert('Kayit servis urli girilmelidir!');
@@ -7292,6 +7294,7 @@ var CardDesign = (function() {
 
         this.front_canvas.on('mouse:over', function(e) {
             var rightClickMenu = document.getElementById("rightClickMenu");
+
             if(rightClickMenu.style.display == "none") {
                 //self.front_canvas.setActiveObject(e.target);
                 //self.front_canvas.renderAll();
@@ -7322,6 +7325,7 @@ var CardDesign = (function() {
         this.injectJquery();
 
         //Init Settings Buttons
+        this.putBuildInSvgImages();
         this.generateOptionsBar();
         this.generateSubOptionsBar();
         this.generateEndButtons();
@@ -7338,7 +7342,7 @@ var CardDesign = (function() {
 
         // Auto Save
 
-        setInterval(self.autoSave.bind(this), 30000);
+        setInterval(self.autoSave.bind(this), 40000);
     }
 
     var consoleActivation = function() {
@@ -7349,6 +7353,21 @@ var CardDesign = (function() {
         if (activeObject) {
             self.subMenuProcess(activeObject.type);
         }
+    };
+
+    CardDesign.prototype.putBuildInSvgImages = function() {
+        var svgContainer = document.getElementById('svgContainer');
+
+        if (svgContainer && this.options.buildInImages && this.options.buildInImages.length > 0) {
+
+            for (var i = 0; i < this.options.buildInImages.length; i++) {
+                var element = document.createElement("img");
+                element.setAttribute('src', this.options.buildInImages[i]);
+                svgContainer.appendChild(element);
+            };
+
+        }
+
     };
 
     CardDesign.prototype.pageLoaded = function() {
@@ -7625,72 +7644,42 @@ var CardDesign = (function() {
     CardDesign.prototype.fileUploadInit = function() {
         var self = this;
         try {
-            (function($) {
-
-                $.fn.singleupload = function(options) {
-
-                    var $this = this;
-                    var inputfile = null;
-
-                    var settings = $.extend({
-                        action: '#',
-                        onSuccess: function(url, data) {},
-                        onError: function(code) {},
-                        OnProgress: function(loaded, total) {
-                            var percent = Math.round(loaded * 100 / total);
-                            $this.html(percent + '%');
-                        },
-                        name: 'img'
-                    }, options);
-
-                    $('#addSelectedImage').bind('click', function() {
-                        $this.css('backgroundImage', 'none');
-                        var fd = new FormData();
-                        fd.append($('#' + settings.inputId).attr('name'), $('#' + settings.inputId).get(0).files[0]);
-
-                        var xhr = new XMLHttpRequest();
-                        xhr.addEventListener("load", function(ev) {
-                                $this.html('');
-                                var res = eval("(" + ev.target.responseText + ")");
-
-                                if (res.code != 0) {
-                                    settings.onError(res.code);
-                                    return;
-                                }
-                                var review = ('<img src="' + res.url + '" style="width:' + $this.width() + 'px;height:' + $this.height() + 'px;"/>');
-                                $this.append(review);
-                                settings.onSuccess(res.url, res.data);
-
-                            },
-                            false);
-                        xhr.upload.addEventListener("progress", function(ev) {
-                            settings.OnProgress(ev.loaded, ev.total);
-                        }, false);
-
-                        xhr.open("POST", settings.action, true);
-                        xhr.send(fd);
-
-                    });
-
-                    return this;
-                }
-
-
-            }(jQuery));
-
-
-
-            $('#uploadbox').singleupload({
-                action: self.options.urls.saveUrl, //action: 'do_upload.php'
-                inputId: 'singleupload_input',
-                onError: function(code) {
-                    console.debug('error code ' + res.code);
-                },
-                onSuccess: function(url, data) {
+            $('#imageUploadForm').on('submit', function(e) {
+                debugger;
+                e.preventDefault();
+                var data = new FormData($('form').get(0));
+                $.ajax({
+                    url: self.options.urls.imageUploadUrl,
+                    method: "POST",
+                    data: data,
+                    beforeSend: function(request) {
+                        var csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
+                        request.setRequestHeader("X-CSRFToken", csrfmiddlewaretoken);
+                    },
+                    success: function(data) {
+                        debugger;
                         console.log(data);
-                    }
-                    /*,onProgress: function(loaded, total) {} */
+                        var image = $('<img src="'+data.uploadedFile+'" />');
+                        $('#svgContainer').append(image);
+                        var input = $('#imageUploadForm input[type=file]');
+                        input.replaceWith(input.val('').clone(true));
+
+                        image.on('click', function() {
+                            debugger;
+                            var imagePopup = document.getElementById("cardDesignImagePopup");
+                            self.activateImage(imagePopup);
+                            $(this).addClass('active');
+                        });
+                    },
+                    error: function(data) {
+                        debugger;
+                        console.log(data);
+                    },
+                    processData: false,
+                    contentType: false
+                });
             });
+
         } catch (err) {
             setTimeout(self.fileUploadInit, 500);
         }
@@ -7749,12 +7738,7 @@ var CardDesign = (function() {
             self.showPopup("image");
         }
 
-        for (var i = 0; i < imagePopup.getElementsByTagName("img").length; i++) {
-            imagePopup.getElementsByTagName("img")[i].onclick = function() {
-                imagePopup.getElementsByClassName("active").length > 0 ? imagePopup.getElementsByClassName("active")[0].classList.remove("active") : "";
-                this.classList.add("active");
-            }
-        }
+        self.activateImage(imagePopup)
 
         addCustomImage.onclick = function() {
             var imageSrc = "";
@@ -7782,6 +7766,18 @@ var CardDesign = (function() {
             self.addLine();
         }
     }
+
+    CardDesign.prototype.activateImage = function( imagePopup ){
+        debugger;
+        for (var i = 0; i < imagePopup.getElementsByTagName("img").length; i++) {
+            imagePopup.getElementsByTagName("img")[i].removeAttribute("class");
+            imagePopup.getElementsByTagName("img")[i].onclick = function() {
+                imagePopup.getElementsByClassName("active").length > 0 ? imagePopup.getElementsByClassName("active")[0].classList.remove("active") : "";
+                this.classList.add("active");
+            }
+        }
+    };
+
     var addOptions = function(obj, families) {
         if (!obj || (!families && families.length === 0)) {
             return;
@@ -7901,12 +7897,15 @@ var CardDesign = (function() {
             self.pasteObject();
         }
         colorArea.getElementsByTagName("a")[0].onclick = function() {
+
             if(colorPalette.style.display != "block") {
                 colorPalette.style.display = "block";
             }else {
                 colorPalette.style.display = "none";
             }
+
         }
+
         for (var i = 0; i < colorPalette.getElementsByTagName("li").length; i++) {
             colorPalette.getElementsByTagName("li")[i].onclick = function() {
                 self.setFill(this.style.backgroundColor);
@@ -8128,15 +8127,18 @@ var CardDesign = (function() {
         var object = fabric.util.object.clone(activeCanvas.getActiveObject());
         this.copyArray[0] = object;    
     }
+
     CardDesign.prototype.cutObject = function() {
         this.copyObject();
         this.removeSelected();    
     }
+
     CardDesign.prototype.pasteObject = function() {
         var activeCanvas = this.getActiveCanvas();
         var object = this.copyArray[0];
-        object.set("top", object.top+5);
-        object.set("left", object.left+5);
+
+        object.set("top", object.top + 5);
+        object.set("left", object.left + 5);
         activeCanvas.add(object);
         this.copyObject();
     }
@@ -8225,8 +8227,6 @@ var CardDesign = (function() {
         return jsons;
     };
 
-    
-
     function getRandomLeftTop() {
         var offset = 50;
         return {
@@ -8305,13 +8305,17 @@ var CardDesign = (function() {
     }
 
     CardDesign.prototype.postData = function(type, url, data) {
+        data.csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
         $.ajax({
-          type: type,
-          url: url,
-          data: data,
-          success: function(data) {
-            console.log("Evet");
-          }
+            url: url,
+            type: type,
+            data: data,
+            success: function(json) {
+                console.log(json.server_response);
+            },
+            error: function(xhr, errmsg, err) {
+                //alert(xhr.status + ": " + xhr.responseText);
+            }
         });
     }
 
