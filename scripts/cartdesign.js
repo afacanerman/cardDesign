@@ -7308,10 +7308,14 @@ var CardDesign = (function() {
         });
 
         this.front_canvas.on('mouse:up', function(e) {
+            self.front_canvas.setActiveObject(e.target);
+            self.activateConsole();
             self.activateRightClick(e);
         });
 
         this.back_canvas.on('mouse:up', function(e) {
+            self.front_canvas.setActiveObject(e.target);
+            self.activateConsole();
             self.activateRightClick(e);
         });
 
@@ -8304,7 +8308,7 @@ var CardDesign = (function() {
                 console.log(json.server_response);
             },
             error: function(xhr, errmsg, err) {
-                alert(xhr.status + ": " + xhr.responseText);
+                console.log(xhr.status + ": " + xhr.responseText);
             }
         });
     }
