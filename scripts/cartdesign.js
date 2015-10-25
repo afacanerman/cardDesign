@@ -7244,7 +7244,6 @@ var fabric = fabric || {
 
 //---------------------------------------------------------------------------------------------------
 
-
 var CardDesign = (function() {
     "use strict";
 
@@ -7253,7 +7252,7 @@ var CardDesign = (function() {
 
         var self = this;
 
-        this.canvasLine = '<i class="line-left"></i><i class="line-right"></i><i class="line-top"></i><i class="line-bottom"></i><ul id="rightClickMenu"><li class="if-image">Resmi Düzenle</li><li class="if-text">Metni Düzenle</li><li class="with-border">Sil</li><li>Kes</li><li>Kopyala</li><li>Yapıştır</li><li class="with-border">Kopyasını Ekle</li><li>En öne getir</li><li>En arkaya ekle</li></ul>';
+        this.canvasLine = '<div id="lines"><i class="line-left"></i><i class="line-right"></i><i class="line-top"></i><i class="line-bottom"></i><ul id="rightClickMenu"><li class="if-image">Resmi Düzenle</li><li class="if-text">Metni Düzenle</li><li class="with-border">Sil</li><li>Kes</li><li>Kopyala</li><li>Yapıştır</li><li class="with-border">Kopyasını Ekle</li><li>En öne getir</li><li>En arkaya ekle</li></ul></div>';
         this.optionsBar = '<div class="option-area clearfix"><div class="content-area"><div class="options-left"><ul><li id="rotateFront"><button class="btn orange" title="Ön Yüz">Ön Yüz</button></li><li id="rotateBack"><button class="btn orange" title="Arka Yüz">Arka Yüz</button></li></ul></div><div class="options-right"><ul><li id="addText"><button title="Metin Ekle">Metin Ekle</button></li><li id="addShapes"><button title="Şekil Ekle">Şekil Ekle</button><ul id="shapeArea"><li><button id="addRectangle" title="Kare">Kare</button></li><li><button id="addCircle" title="Daire">Daire</button></li><li><button id="addTriangle" title="Üçgen">Üçgen</button></li><li><button id="addLine" title="Çizgi">Çizgi</button></li></ul></li><li id="AddImage"><button title="Resim Ekle">Resim Ekle</button></li></ul></div></div></div>';
         this.subOptionsBar = '<div class="sub-options"> <div class="content-area"> <div class="options-left"> <div id="globalOptions"> <ul> <li class="operations"> <select id="operations" class="slct"> <option value="" selected="">İşlemler</option> <option value="delete">Sil</option> <option value="cut">Kes</option> <option value="copy">Kopyala</option> <option value="paste">Yapıştır</option> <option value="addCopy">Kopyasını Ekle</option> <option value="moveToFront">En Öne Getir</option> <option value="moveToBack">En Arkaya Ekle</option> </select> </li><li id="copy-object" class="copy-object"><a class="icon" href="javascirpt:;"></a></li><li id="cut-object" class="cut-object"><a class="icon" href="javascirpt:;"></a></li><li id="paste-object" class="paste-object"><a class="icon" href="javascirpt:;"></a></li><li id="opacity"><input id="object-opacity" type="range" value="100"/></li><li id="delete" class="delete"><a class="icon" href="javascirpt:;"></a></li></ul> </div></div><div class="options-right"> <div id="textOptions"> <ul> <li class="family"> <select id="font-family" class="slct"> <option value="arial">Arial</option> <option value="helvetica" selected="">Helvetica</option> <option value="myriad pro">Myriad Pro</option> <option value="delicious">Delicious</option> <option value="verdana">Verdana</option> <option value="georgia">Georgia</option> <option value="courier">Courier</option> <option value="comic sans ms">Comic Sans MS</option> <option value="impact">Impact</option> <option value="monaco">Monaco</option> <option value="optima">Optima</option> <option value="hoefler text">Hoefler Text</option> <option value="plaster">Plaster</option> <option value="engagement">Engagement</option> </select> </li><li class="size"> <select id="font-size" class="slct"> <option value="10">10</option> <option value="12" selected="">12</option> <option value="14">14</option> <option value="16">16</option> <option value="18">18</option> <option value="24">24</option> <option value="36">36</option> <option value="48">48</option> <option value="72">72</option> <option value="120">120</option> <option value="150">150</option> <option value="180">180</option> <option value="200">200</option> <option value="250">250</option> </select> </li><li id="align-left" class="align-left"><a class="icon" href="javascirpt:;"></a></li><li id="align-center" class="align-center"><a class="icon" href="javascirpt:;"></a></li><li id="align-right" class="align-right"><a class="icon" href="javascirpt:;"></a></li><li id="text-bold" class="text-bold"><a class="icon" href="javascirpt:;"></a></li><li id="text-italic" class="text-italic"><a class="icon" href="javascirpt:;"></a></li><li id="text-underline" class="text-underline"><a class="icon" href="javascirpt:;"></a></li><li id="edit-text" class="edit-text"><a class="icon" href="javascirpt:;"></a></li></ul> </div><div id="colorArea"> <ul> <li id="color-area" class="color-area"> <a class="icon" href="javascirpt:;"></a> <ul id="color-palette"></ul> </li></ul> </div></div></div></div>';
         this.imageUploadForm = '<div id="upload-area"><span class="context">Resim Seç</span><form method="POST" name="form" id="imageUploadForm" enctype="multipart/form-data"> <input type="file" id="img" name="img"/> <div class="buttons"> <input type="submit" class="btn done" id="addSelectedImage" value="Ekle"/> <button class="btn warning" id="cancelAddCustomImage">İptal</button> </div></form></div>'
@@ -7294,8 +7293,8 @@ var CardDesign = (function() {
 
         this.front_canvas.on('mouse:over', function(e) {
             var rightClickMenu = document.getElementById("rightClickMenu");
-
-            if(rightClickMenu.style.display == "none") {
+           
+            if (rightClickMenu.style.display == "none") {
                 //self.front_canvas.setActiveObject(e.target);
                 //self.front_canvas.renderAll();
             }
@@ -7358,11 +7357,11 @@ var CardDesign = (function() {
     CardDesign.prototype.putBuildInSvgImages = function() {
         var svgContainer = document.getElementById('svgContainer');
 
-        if (svgContainer && this.options.buildInImages && this.options.buildInImages.length > 0) {
+        if (svgContainer && this.options.buildInImages.social && this.options.buildInImages.social.length > 0) {
 
-            for (var i = 0; i < this.options.buildInImages.length; i++) {
+            for (var i = 0; i < this.options.buildInImages.social.length; i++) {
                 var element = document.createElement("img");
-                element.setAttribute('src', this.options.buildInImages[i]);
+                element.setAttribute('src', this.options.buildInImages.social[i]);
                 svgContainer.appendChild(element);
             };
 
@@ -7768,7 +7767,6 @@ var CardDesign = (function() {
     }
 
     CardDesign.prototype.activateImage = function( imagePopup ){
-        debugger;
         for (var i = 0; i < imagePopup.getElementsByTagName("img").length; i++) {
             imagePopup.getElementsByTagName("img")[i].removeAttribute("class");
             imagePopup.getElementsByTagName("img")[i].onclick = function() {
@@ -7972,10 +7970,6 @@ var CardDesign = (function() {
         var acceptCheck = document.getElementById("accept");
 
         preview.onclick = function() {
-
-            self.front_canvas.deactivateAll().renderAll();
-            self.back_canvas.deactivateAll().renderAll();
-
             var frontImage = document.getElementById("frontPreview");
             var backImage = document.getElementById("backPreview");
             self.showPopup("preview");

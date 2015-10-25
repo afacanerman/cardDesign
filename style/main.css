@@ -98,11 +98,8 @@
 .card-design i.line-right:after {
     content: "";
     width: 1px;
-<<<<<<< HEAD
     border: 1px dashed #ddd;
     border-left: none;
-=======
->>>>>>> #000 - Volkan: last changes
     height: calc(100% - 30px);
     top: 15px;
     right: 15px;
@@ -564,7 +561,7 @@
     padding: 0px;
     position: absolute;
     background-color: #FFF;
-    z-index: 2;
+    z-index: 99999;
 }
 
 #rightClickMenu li {
