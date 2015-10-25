@@ -7293,7 +7293,7 @@ var CardDesign = (function() {
 
         this.front_canvas.on('mouse:over', function(e) {
             var rightClickMenu = document.getElementById("rightClickMenu");
-           
+
             if (rightClickMenu.style.display == "none") {
                 //self.front_canvas.setActiveObject(e.target);
                 //self.front_canvas.renderAll();
@@ -7339,8 +7339,9 @@ var CardDesign = (function() {
 
         window.onload = this.pageLoaded();
 
-        // Auto Save
+        this.addCornerLines();
 
+        // Auto Save
         setInterval(self.autoSave.bind(this), 40000);
     }
 
@@ -7638,6 +7639,107 @@ var CardDesign = (function() {
         }));
     };
 
+    CardDesign.prototype.addCornerLines = function() {
+        var self = this;
+        var activeCanvas = self.getActiveCanvas();
+
+        var topLeft = 25,
+            top = 25;
+        var topHalf = topLeft/2;
+        var height_extention = self.options.height * 34.5 / 100;
+
+
+        var topInner = new fabric.Line([25, 20, self.options.width - top, 20], {
+            left: topLeft,
+            top: top,
+            strokeDashArray: [3, 3],
+            stroke: 'gray',
+            lockRotation: true,
+            lockScalingX: true,
+            selectable: false
+        });
+
+        var topOuter = new fabric.Line([25, 20, self.options.width, 20], {
+            left: topHalf,
+            top: topHalf,
+            strokeDashArray: [3, 3],
+            stroke: 'gray',
+            lockRotation: true,
+            lockScalingX: true,
+            selectable: false
+        });
+
+        var topLeftInnerY = new fabric.Line([120, self.options.height + height_extention - top, 120, 200], {
+            left: topLeft,
+            top: top,
+            strokeDashArray: [3, 3],
+            stroke: 'gray',
+            lockRotation: true,
+            lockScalingX: true,
+            selectable: false
+        });
+
+        var topLeftOuterY = new fabric.Line([100, self.options.height + height_extention, 100, 200], {
+            left: topHalf,
+            top: topHalf,
+            strokeDashArray: [3, 3],
+            stroke: 'gray',
+            lockRotation: true,
+            lockScalingX: true,
+            selectable: false
+        });
+
+         var topRightInnerY = new fabric.Line([120, self.options.height + height_extention - top, 120, 200], {
+            left: self.options.width - top,
+            top: top,
+            strokeDashArray: [3, 3],
+            stroke: 'gray',
+            lockRotation: true,
+            lockScalingX: true,
+            selectable: false
+        });
+
+        var topRightOuterY = new fabric.Line([100, self.options.height + height_extention, 100, 200], {
+            left: self.options.width - topHalf,
+            top: topHalf,
+            strokeDashArray: [3, 3],
+            stroke: 'gray',
+            lockRotation: true,
+            lockScalingX: true,
+            selectable: false
+        });
+
+
+        var bottomInner = new fabric.Line([25, 20, self.options.width - top, 20], {
+            left: topLeft,
+            top: self.options.height - top,
+            strokeDashArray: [3, 3],
+            stroke: 'gray',
+            lockRotation: true,
+            lockScalingX: true,
+            selectable: false
+        });
+
+        var bottomOuter = new fabric.Line([25, 20, self.options.width, 20], {
+            left: topHalf,
+            top: self.options.height - topHalf,
+            strokeDashArray: [3, 3],
+            stroke: 'gray',
+            lockRotation: true,
+            lockScalingX: true,
+            selectable: false
+        });
+
+        activeCanvas.add(topInner);
+        activeCanvas.add(topOuter);
+        activeCanvas.add(topLeftInnerY);
+        activeCanvas.add(topLeftOuterY);
+        activeCanvas.add(topRightOuterY);
+        activeCanvas.add(topRightInnerY);
+        activeCanvas.add(bottomInner);
+        activeCanvas.add(bottomOuter);
+    }
+
     // --------------- IMAGE UPLOAD -----------------------
 
     CardDesign.prototype.fileUploadInit = function() {
@@ -7658,7 +7760,7 @@ var CardDesign = (function() {
                     success: function(data) {
                         debugger;
                         console.log(data);
-                        var image = $('<img src="'+data.uploadedFile+'" />');
+                        var image = $('<img src="' + data.uploadedFile + '" />');
                         $('#svgContainer').append(image);
                         var input = $('#imageUploadForm input[type=file]');
                         input.replaceWith(input.val('').clone(true));
@@ -7766,7 +7868,7 @@ var CardDesign = (function() {
         }
     }
 
-    CardDesign.prototype.activateImage = function( imagePopup ){
+    CardDesign.prototype.activateImage = function(imagePopup) {
         for (var i = 0; i < imagePopup.getElementsByTagName("img").length; i++) {
             imagePopup.getElementsByTagName("img")[i].removeAttribute("class");
             imagePopup.getElementsByTagName("img")[i].onclick = function() {
