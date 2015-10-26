@@ -7255,8 +7255,8 @@ var CardDesign = (function() {
         this.canvasLine = '<div id="lines"><ul id="rightClickMenu"><li class="if-image">Resmi Düzenle</li><li class="if-text">Metni Düzenle</li><li class="with-border">Sil</li><li>Kes</li><li>Kopyala</li><li>Yapıştır</li><li class="with-border">Kopyasını Ekle</li><li>En öne getir</li><li>En arkaya ekle</li></ul></div>';
         this.optionsBar = '<div class="option-area clearfix"><div class="content-area"><div class="options-left"><ul><li id="rotateFront"><button class="btn orange" title="Ön Yüz">Ön Yüz</button></li><li id="rotateBack"><button class="btn orange" title="Arka Yüz">Arka Yüz</button></li></ul></div><div class="options-right"><ul><li id="addText"><button title="Metin Ekle">Metin Ekle</button></li><li id="addShapes"><button title="Şekil Ekle">Şekil Ekle</button><ul id="shapeArea"><li><button id="addRectangle" title="Kare">Kare</button></li><li><button id="addCircle" title="Daire">Daire</button></li><li><button id="addTriangle" title="Üçgen">Üçgen</button></li><li><button id="addLine" title="Çizgi">Çizgi</button></li></ul></li><li id="AddImage"><button title="Resim Ekle">Resim Ekle</button></li></ul></div></div></div>';
         this.subOptionsBar = '<div class="sub-options"> <div class="content-area"> <div class="options-left"> <div id="globalOptions"> <ul> <li class="operations"> <select id="operations" class="slct"> <option value="" selected="">İşlemler</option> <option value="delete">Sil</option> <option value="cut">Kes</option> <option value="copy">Kopyala</option> <option value="paste">Yapıştır</option> <option value="addCopy">Kopyasını Ekle</option> <option value="moveToFront">En Öne Getir</option> <option value="moveToBack">En Arkaya Ekle</option> </select> </li><li id="copy-object" class="copy-object"><a class="icon" href="javascirpt:;"></a></li><li id="cut-object" class="cut-object"><a class="icon" href="javascirpt:;"></a></li><li id="paste-object" class="paste-object"><a class="icon" href="javascirpt:;"></a></li><li id="opacity"><input id="object-opacity" type="range" value="100"/></li><li id="delete" class="delete"><a class="icon" href="javascirpt:;"></a></li></ul> </div></div><div class="options-right"> <div id="textOptions"> <ul> <li class="family"> <select id="font-family" class="slct"> <option value="arial">Arial</option> <option value="helvetica" selected="">Helvetica</option> <option value="myriad pro">Myriad Pro</option> <option value="delicious">Delicious</option> <option value="verdana">Verdana</option> <option value="georgia">Georgia</option> <option value="courier">Courier</option> <option value="comic sans ms">Comic Sans MS</option> <option value="impact">Impact</option> <option value="monaco">Monaco</option> <option value="optima">Optima</option> <option value="hoefler text">Hoefler Text</option> <option value="plaster">Plaster</option> <option value="engagement">Engagement</option> </select> </li><li class="size"> <select id="font-size" class="slct"> <option value="10">10</option> <option value="12" selected="">12</option> <option value="14">14</option> <option value="16">16</option> <option value="18">18</option> <option value="24">24</option> <option value="36">36</option> <option value="48">48</option> <option value="72">72</option> <option value="120">120</option> <option value="150">150</option> <option value="180">180</option> <option value="200">200</option> <option value="250">250</option> </select> </li><li id="align-left" class="align-left"><a class="icon" href="javascirpt:;"></a></li><li id="align-center" class="align-center"><a class="icon" href="javascirpt:;"></a></li><li id="align-right" class="align-right"><a class="icon" href="javascirpt:;"></a></li><li id="text-bold" class="text-bold"><a class="icon" href="javascirpt:;"></a></li><li id="text-italic" class="text-italic"><a class="icon" href="javascirpt:;"></a></li><li id="text-underline" class="text-underline"><a class="icon" href="javascirpt:;"></a></li><li id="edit-text" class="edit-text"><a class="icon" href="javascirpt:;"></a></li></ul> </div><div id="colorArea"> <ul> <li id="color-area" class="color-area"> <a class="icon" href="javascirpt:;"></a> <ul id="color-palette"></ul> </li></ul> </div></div></div></div>';
-        this.popup = '<div class="popup-content"> <div id="cardDesignPopup"> <span class="context">Metin Ekle</span> <textarea id="custom-text" placeholder="Metin Girin"></textarea> <div class="buttons"><button class="btn done" id="editCustomText">Düzenle</button><button class="btn done" id="addCustomText">Ekle</button><button class="btn warning" id="cancelAddCustomText">İptal</button></div></div><div id="cardDesignImagePopup"> <span class="context">Resim Ekle</span> <div id="svgContainer" class="images clearfix"></div><div class="buttons"><button class="btn done" id="addCustomImage">Ekle</button> </div> {imageUploadForm}</div><div id="previewPopup"><span class="context">Ön İzleme</span><div class="preview-image-area"><img src="" id="frontPreview"/><img src="" id="backPreview"/></div><div class="checkbox-area"><input type="checkbox" id="accept"/><span class="accept-text">Tasarımı Onaylıyorum.</span><span id="accept-result" class="accept-result"></span></div><div class="buttons"><button class="btn done" id="sendPreviewImage">Gönder</button><button class="btn warning" id="cancelPreviewImage">Düzenlemeye Devam Et</button></div></div></div>';
         this.imageUploadForm = '<div id="upload-area"><span class="context">Resim Seç</span><form method="POST" name="form" id="imageUploadForm" enctype="multipart/form-data"> <input type="file" id="img" name="img"/> <div class="buttons"> <input type="submit" class="btn done" id="addSelectedImage" value="Ekle"/> <button class="btn warning" id="cancelAddCustomImage">İptal</button> </div></form></div>'
+        this.popup = '<div class="popup-content"> <div id="cardDesignPopup"> <span class="context">Metin Ekle</span> <textarea id="custom-text" placeholder="Metin Girin"></textarea> <div class="buttons"><button class="btn done" id="editCustomText">Düzenle</button><button class="btn done" id="addCustomText">Ekle</button><button class="btn warning" id="cancelAddCustomText">İptal</button></div></div><div id="cardDesignImagePopup"> <span class="context">Resim Ekle</span> <div class="images clearfix"> <img src="images/svg/1.svg"> <img src="images/svg/2.svg"> <img src="images/svg/3.svg"> <img src="images/svg/4.svg"> <img src="images/svg/5.svg"> <img src="images/svg/6.svg"> <img src="images/svg/7.svg"> <img src="images/svg/8.svg"> <img src="images/svg/9.svg"> <img src="images/svg/10.svg"> </div><div class="buttons"><button class="btn done" id="addCustomImage">Ekle</button> </div> {imageUploadForm}</div><div id="previewPopup"><span class="context">Ön İzleme</span><div class="preview-image-area"><img src="" id="frontPreview"/><img src="" id="backPreview"/></div><div class="checkbox-area"><input type="checkbox" id="accept"/><span class="accept-text">Tasarımı Onaylıyorum.</span><span id="accept-result" class="accept-result"></span></div><div class="buttons"><button class="btn done" id="sendPreviewImage">Gönder</button><button class="btn warning" id="cancelPreviewImage">Düzenlemeye Devam Et</button></div></div></div>';
         this.endButtons = '<div class="endButtons"><ul><li id="preview"><button class="btn orange">Bitti Ön izlemeyi Gör</button></li></li></ul></div>';
 
         this.options = options;
@@ -7302,7 +7302,7 @@ var CardDesign = (function() {
 
         this.back_canvas.on('mouse:over', function(e) {
             var rightClickMenu = document.getElementById("rightClickMenu");
-            if (rightClickMenu.style.display == "none") {
+            if(rightClickMenu.style.display == "none") {
                 //self.back_canvas.setActiveObject(e.target);
                 //self.back_canvas.renderAll();
             }
@@ -7339,7 +7339,6 @@ var CardDesign = (function() {
 
         window.onload = this.pageLoaded();
 
-        this.addCornerLines();
         this.addCornerLines("front");
         this.addCornerLines("back");
 
@@ -7395,68 +7394,68 @@ var CardDesign = (function() {
         var self = this;
         var rightClickMenu = document.getElementById("rightClickMenu");
         var isRightMB;
-        e = e || window.event;
-        e = e.e;
+            e = e || window.event;
+            e = e.e;
+            console.log(e);
+            if ((e.which == 3 || e.button == 2) && self.getActiveCanvas()._activeObject != null && e.target.style.cursor == "move") {
+                e.preventDefault();
+                var positionX = e.offsetX;
+                var positionY = e.offsetY;
 
-        if ((e.which == 3 || e.button == 2) && self.getActiveCanvas()._activeObject != null && e.target.style.cursor == "move") {
-            e.preventDefault();
-            var positionX = e.offsetX;
-            var positionY = e.offsetY;
+                isRightMB = true;
+                rightClickMenu.style.left = positionX + "px";
+                rightClickMenu.style.top = positionY + "px";
+                rightClickMenu.style.display = "block";
 
-            isRightMB = true;
-            rightClickMenu.style.left = positionX + "px";
-            rightClickMenu.style.top = positionY + "px";
-            rightClickMenu.style.display = "block";
+                if(self.getActiveCanvas().getActiveObject().type == "text") {
+                    rightClickMenu.classList.add("text");
+                }else {
+                    rightClickMenu.classList.remove("text");
+                }
 
-            if (self.getActiveCanvas().getActiveObject().type == "text") {
-                rightClickMenu.classList.add("text");
-            } else {
-                rightClickMenu.classList.remove("text");
-            }
-
-            rightClickMenu.onclick = function(e) {
-                rightClickMenu.style.display = "none";
-                switch (e.target.innerHTML) {
-                    case "Metni Düzenle":
+                rightClickMenu.onclick = function(e) {
+                    rightClickMenu.style.display = "none";
+                    switch(e.target.innerHTML) {
+                        case "Metni Düzenle":
                         self.showPopup("edit");
                         break;
 
-                    case "Sil":
+                        case "Sil":
                         self.cutObject();
                         break;
 
-                    case "Kopyala":
+                        case "Kopyala":
                         self.copyObject();
                         break;
 
-                    case "Yapıştır":
+                        case "Yapıştır":
                         self.pasteObject();
                         break;
 
-                    case "Kes":
+                        case "Kes":
                         self.cutObject();
                         break;
 
-                    case "Kopyasını Ekle":
+                        case "Kopyasını Ekle":
                         self.copyObject();
                         self.pasteObject();
                         break;
 
-                    case "En öne getir":
+                        case "En öne getir":
                         self.bringToFront();
                         break;
 
-                    case "En arkaya ekle":
+                        case "En arkaya ekle":
                         self.sendToBack();
                         break;
+                    }
                 }
-            }
 
-        } // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
-        else {
-            isRightMB = false;
-            rightClickMenu.style.display = "none";
-        } // IE, Opera     
+            }  // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
+            else {
+                isRightMB = false;
+                rightClickMenu.style.display = "none"; 
+            }  // IE, Opera     
     };
 
     var injectScript = function(src, intoBody) {
@@ -7532,7 +7531,7 @@ var CardDesign = (function() {
         var self = this,
             coord = {
                 left: 100,
-                top: 100
+                top: 100 
             };
 
         fabric.Image.fromURL(imageName, function(image) {
@@ -7588,159 +7587,58 @@ var CardDesign = (function() {
         var coord = getRandomLeftTop();
 
         activeCanvas.add(new fabric.Rect({
-            left: coord.left,
-            top: coord.top,
-            fill: '#' + getRandomColor(),
-            width: 50,
-            height: 50,
-            opacity: 1
+          left: coord.left,
+          top: coord.top,
+          fill: '#' + getRandomColor(),
+          width: 50,
+          height: 50,
+          opacity: 1
         }));
-    };
+      };
 
-    CardDesign.prototype.addCircle = function() {
+      CardDesign.prototype.addCircle = function() {
         var self = this;
 
         var activeCanvas = self.getActiveCanvas();
         var coord = getRandomLeftTop();
 
         activeCanvas.add(new fabric.Circle({
-            left: coord.left,
-            top: coord.top,
-            fill: '#' + getRandomColor(),
-            radius: 50,
-            opacity: 1
+          left: coord.left,
+          top: coord.top,
+          fill: '#' + getRandomColor(),
+          radius: 50,
+          opacity: 1
         }));
-    };
+      };
 
-    CardDesign.prototype.addTriangle = function() {
+      CardDesign.prototype.addTriangle = function() {
         var self = this;
 
         var activeCanvas = self.getActiveCanvas();
         var coord = getRandomLeftTop();
 
         activeCanvas.add(new fabric.Triangle({
-            left: coord.left,
-            top: coord.top,
-            fill: '#' + getRandomColor(),
-            width: 50,
-            height: 50,
-            opacity: 1
+          left: coord.left,
+          top: coord.top,
+          fill: '#' + getRandomColor(),
+          width: 50,
+          height: 50,
+          opacity: 1
         }));
-    };
+      };
 
-    CardDesign.prototype.addLine = function() {
+      CardDesign.prototype.addLine = function() {
         var self = this;
 
         var activeCanvas = self.getActiveCanvas();
         var coord = getRandomLeftTop();
 
-        activeCanvas.add(new fabric.Line([50, 100, 200, 200], {
-            left: coord.left,
-            top: coord.top,
-            stroke: '#' + getRandomColor()
+        activeCanvas.add(new fabric.Line([ 50, 100, 200, 200], {
+          left: coord.left,
+          top: coord.top,
+          stroke: '#' + getRandomColor()
         }));
-    };
-
-    CardDesign.prototype.addCornerLines = function() {
-        var self = this;
-        var activeCanvas = self.getActiveCanvas();
-
-        var topLeft = 25,
-            top = 25;
-        var topHalf = topLeft/2;
-        var height_extention = self.options.height * 34.5 / 100;
-
-
-        var topInner = new fabric.Line([25, 20, self.options.width - top, 20], {
-            left: topLeft,
-            top: top,
-            strokeDashArray: [3, 3],
-            stroke: 'gray',
-            lockRotation: true,
-            lockScalingX: true,
-            selectable: false
-        });
-
-        var topOuter = new fabric.Line([25, 20, self.options.width, 20], {
-            left: topHalf,
-            top: topHalf,
-            strokeDashArray: [3, 3],
-            stroke: 'gray',
-            lockRotation: true,
-            lockScalingX: true,
-            selectable: false
-        });
-
-        var topLeftInnerY = new fabric.Line([120, self.options.height + height_extention - top, 120, 200], {
-            left: topLeft,
-            top: top,
-            strokeDashArray: [3, 3],
-            stroke: 'gray',
-            lockRotation: true,
-            lockScalingX: true,
-            selectable: false
-        });
-
-        var topLeftOuterY = new fabric.Line([100, self.options.height + height_extention, 100, 200], {
-            left: topHalf,
-            top: topHalf,
-            strokeDashArray: [3, 3],
-            stroke: 'gray',
-            lockRotation: true,
-            lockScalingX: true,
-            selectable: false
-        });
-
-         var topRightInnerY = new fabric.Line([120, self.options.height + height_extention - top, 120, 200], {
-            left: self.options.width - top,
-            top: top,
-            strokeDashArray: [3, 3],
-            stroke: 'gray',
-            lockRotation: true,
-            lockScalingX: true,
-            selectable: false
-        });
-
-        var topRightOuterY = new fabric.Line([100, self.options.height + height_extention, 100, 200], {
-            left: self.options.width - topHalf,
-            top: topHalf,
-            strokeDashArray: [3, 3],
-            stroke: 'gray',
-            lockRotation: true,
-            lockScalingX: true,
-            selectable: false
-        });
-
-
-        var bottomInner = new fabric.Line([25, 20, self.options.width - top, 20], {
-            left: topLeft,
-            top: self.options.height - top,
-            strokeDashArray: [3, 3],
-            stroke: 'gray',
-            lockRotation: true,
-            lockScalingX: true,
-            selectable: false
-        });
-
-        var bottomOuter = new fabric.Line([25, 20, self.options.width, 20], {
-            left: topHalf,
-            top: self.options.height - topHalf,
-            strokeDashArray: [3, 3],
-            stroke: 'gray',
-            lockRotation: true,
-            lockScalingX: true,
-            selectable: false
-        });
-
-        activeCanvas.add(topInner);
-        activeCanvas.add(topOuter);
-        activeCanvas.add(topLeftInnerY);
-        activeCanvas.add(topLeftOuterY);
-        activeCanvas.add(topRightOuterY);
-        activeCanvas.add(topRightInnerY);
-        activeCanvas.add(bottomInner);
-        activeCanvas.add(bottomOuter);
-    }
+      };
 
     CardDesign.prototype.addCornerLines = function(canvas) {
         var self = this;
@@ -8040,34 +7938,34 @@ var CardDesign = (function() {
 
         this.appendToColor();
         operations.onchange = function() {
-            switch (operations.value) {
+            switch(operations.value) {
                 case "delete":
-                    self.cutObject();
-                    break;
+                self.cutObject();
+                break;
 
                 case "copy":
-                    self.copyObject();
-                    break;
+                self.copyObject();
+                break;
 
                 case "paste":
-                    self.pasteObject();
-                    break;
+                self.pasteObject();
+                break;
 
                 case "cut":
-                    self.cutObject();
-                    break;
+                self.cutObject();
+                break;
 
                 case "addCopy":
-                    self.pasteObject();
-                    break;
+                self.pasteObject();
+                break;
 
                 case "moveToFront":
-                    self.bringToFront();
-                    break;
+                self.bringToFront();
+                break;
 
                 case "moveToBack":
-                    self.sendToBack();
-                    break;
+                self.sendToBack();
+                break;
             }
         }
         fontFamily.onchange = function() {
@@ -8118,9 +8016,10 @@ var CardDesign = (function() {
             self.pasteObject();
         }
         colorArea.getElementsByTagName("a")[0].onclick = function() {
-            if (colorPalette.style.display != "block") {
+
+            if(colorPalette.style.display != "block") {
                 colorPalette.style.display = "block";
-            } else {
+            }else {
                 colorPalette.style.display = "none";
             }
 
@@ -8209,17 +8108,17 @@ var CardDesign = (function() {
             var acceptIsChecked = document.getElementById("accept").checked;
             var acceptResult = document.getElementById("accept-result");
             var json = "";
-            if (acceptIsChecked) {
+            if(acceptIsChecked) {
                 acceptResult.style.display = "none";
                 var imageUrlFront = self.rasterize("front");
                 var imageUrlBack = self.rasterize("back");
                 var imageUrls = {
-                    "front": imageUrlFront,
-                    "back": imageUrlBack
+                    "front" : imageUrlFront,
+                    "back" : imageUrlBack
                 }
 
                 self.postData("POST", self.options.urls.uploadCartDesignUrl, imageUrls);
-            } else {
+            }else {
                 acceptResult.innerHTML = "Lütfen tasarımı onaylayınız.";
                 acceptResult.style.display = "block";
                 return false;
@@ -8341,17 +8240,18 @@ var CardDesign = (function() {
     CardDesign.prototype.copyObject = function() {
         var activeCanvas = this.getActiveCanvas();
         var object = fabric.util.object.clone(activeCanvas.getActiveObject());
-        this.copyArray[0] = object;
+        this.copyArray[0] = object;    
     }
 
     CardDesign.prototype.cutObject = function() {
         this.copyObject();
-        this.removeSelected();
+        this.removeSelected();    
     }
 
     CardDesign.prototype.pasteObject = function() {
         var activeCanvas = this.getActiveCanvas();
         var object = this.copyArray[0];
+
         object.set("top", object.top + 5);
         object.set("left", object.left + 5);
         activeCanvas.add(object);
@@ -8369,7 +8269,7 @@ var CardDesign = (function() {
         var colorArea = document.getElementById("color-area");
         var colorPalette = document.getElementById("color-palette");
 
-        for (var i = 0; i < colors.length; i++) {
+        for(var i = 0; i < colors.length; i++) {
             var colorElement = document.createElement("li");
             colorElement.style.backgroundColor = colors[i];
             colorPalette.appendChild(colorElement);
@@ -8381,7 +8281,7 @@ var CardDesign = (function() {
         var activeCanvas = this.getActiveCanvas();
         var activeObject = activeCanvas.getActiveObject();
         if (activeObject) {
-            activeCanvas.bringToFront(activeObject);
+          activeCanvas.bringToFront(activeObject);
         }
         self.bringToFrontLine(activeObject, activeCanvas);
         /*for(var i = 0; activeCanvas._objects.length > i ; i++ ) {
@@ -8402,7 +8302,7 @@ var CardDesign = (function() {
         var activeCanvas = this.getActiveCanvas();
         var activeObject = activeCanvas.getActiveObject();
         if (activeObject) {
-            activeCanvas.sendToBack(activeObject);
+          activeCanvas.sendToBack(activeObject);
         }
     };
 
@@ -8424,34 +8324,34 @@ var CardDesign = (function() {
 
     CardDesign.prototype.rasterize = function(side) {
         var self = this;
-        switch (side) {
+        switch(side) {
             case "front":
-                var activeCanvas = self.front_canvas;
-                break;
+            var activeCanvas = self.front_canvas;
+            break;
 
             case "back":
-                var activeCanvas = self.back_canvas;
-                break;
+            var activeCanvas = self.back_canvas;    
+            break;
         }
-
+        
         if (!fabric.Canvas.supports('toDataURL')) {
-            alert('This browser doesn\'t provide means to serialize canvas to an image');
-        } else {
-            return activeCanvas.toDataURL('png');
+          alert('This browser doesn\'t provide means to serialize canvas to an image');
+        }
+        else {
+          return activeCanvas.toDataURL('png');
         }
     };
 
     CardDesign.prototype.rasterizeJSON = function() {
         var self = this;
-        var activeJson = this.setConsoleJSON(JSON.stringify(self.front_canvas),
-            JSON.stringify(self.back_canvas));
+        var activeJson = this.setConsoleJSON(JSON.stringify(self.front_canvas), JSON.stringify(self.back_canvas));
         return activeJson;
     };
 
     CardDesign.prototype.setConsoleJSON = function(frontValue, backValue) {
         var jsons = {
-            "frontJson": frontValue,
-            "backJson": backValue
+            "frontJson" : frontValue,
+            "backJson" : backValue
         }
         return jsons;
     };
