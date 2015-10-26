@@ -98,8 +98,11 @@
 .card-design i.line-right:after {
     content: "";
     width: 1px;
+<<<<<<< HEAD
     border: 1px dashed #ddd;
     border-left: none;
+=======
+>>>>>>> #000 - Volkan: last changes
     height: calc(100% - 30px);
     top: 15px;
     right: 15px;
