@@ -7251,6 +7251,7 @@ var CardDesign = (function() {
     function CardDesign(options) {
 
         var self = this;
+        this.siteUrl = "http://52.29.91.149/";
 
         this.canvasLine = '<div id="lines"><ul id="rightClickMenu"><li class="if-image">Resmi Düzenle</li><li class="if-text">Metni Düzenle</li><li class="with-border">Sil</li><li>Kes</li><li>Kopyala</li><li>Yapıştır</li><li class="with-border">Kopyasını Ekle</li><li>En öne getir</li><li>En arkaya ekle</li></ul></div>';
         this.optionsBar = '<div class="option-area clearfix"><div class="content-area"><div class="options-left"><ul><li id="rotateFront"><button class="btn orange" title="Ön Yüz">Ön Yüz</button></li><li id="rotateBack"><button class="btn orange" title="Arka Yüz">Arka Yüz</button></li></ul></div><div class="options-right"><ul><li id="addText"><button title="Metin Ekle">Metin Ekle</button></li><li id="addShapes"><button title="Şekil Ekle">Şekil Ekle</button><ul id="shapeArea"><li><button id="addRectangle" title="Kare">Kare</button></li><li><button id="addCircle" title="Daire">Daire</button></li><li><button id="addTriangle" title="Üçgen">Üçgen</button></li><li><button id="addLine" title="Çizgi">Çizgi</button></li></ul></li><li id="AddImage"><button title="Resim Ekle">Resim Ekle</button></li></ul></div></div></div>';
@@ -7262,7 +7263,8 @@ var CardDesign = (function() {
         this.options = options;
         this.copyArray = [];
 
-
+        this.initData(self.siteUrl);
+        
         if (!options.urls.saveUrl) {
             alert('Kayit servis urli girilmelidir!');
             return;
@@ -7320,8 +7322,8 @@ var CardDesign = (function() {
             self.activateRightClick(e);
         });
 
-        this.injectGoogleFonts();
         this.injectJquery();
+        this.injectGoogleFonts();
 
         //Init Settings Buttons
         this.putBuildInSvgImages();
@@ -7355,6 +7357,21 @@ var CardDesign = (function() {
             self.subMenuProcess(activeObject.type);
         }
     };
+
+    CardDesign.prototype.initData = function(siteUrl) {
+        var self = this;
+
+        var CSRFToken = this.getService("GET", this.siteUrl + "services/session/token", "");
+        self.options.token = CSRFToken;
+        this.loginService("POST", siteUrl + "api/tasarim/user/login", {"username" : "tester", "password" : "qazxsw"}, CSRFToken);
+        var userId = this.getService("GET", this.siteUrl + "api/tasarim/system/connect", CSRFToken);
+        self.options.userId = userId;
+        var userDesign = this.getService("GET", this.siteUrl + "api/tasarim/node/21", CSRFToken);
+        userDesign = {"vid":"21","uid":"2","title":"User","log":"","status":"1","comment":"1","promote":"0","sticky":"0","nid":"21","type":"tasarimlar","language":"und","created":"1445765528","changed":"1446016858","tnid":"0","translate":"0","revision_timestamp":"1446016858","revision_uid":"2","body":{"und":[{"value":"This is the body of the page.","summary":"","format":"filtered_html","safe_value":"<p>This is the body of the page.</p>\n","safe_summary":""}]},"field_jsons":{"und":[{"front":'{"objects":[{"type":"rect","originX":"left","originY":"top","left":-21.33,"top":-13,"width":50,"height":50,"fill":"#920a17","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":14.38,"scaleY":12.02,"angle":0,"flipX":false,"flipY":false,"opacity":0.8,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"rx":0,"ry":0},{"type":"text","originX":"left","originY":"top","left":290,"top":243,"width":236.78,"height":93.07,"fill":"#b5f5d7","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.5,"scaleY":0.5,"angle":7,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"text":"Ön Yüz","fontSize":71,"fontWeight":"","fontFamily":"helvetica","fontStyle":"","lineHeight":1.16,"textDecoration":"","textAlign":"left","textBackgroundColor":""}],"background":""}',"back":'{"objects":[{"type":"rect","originX":"left","originY":"top","left":-21.33,"top":-13,"width":50,"height":50,"fill":"#920a17","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":14.38,"scaleY":12.02,"angle":0,"flipX":false,"flipY":false,"opacity":0.8,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"rx":0,"ry":0},{"type":"text","originX":"left","originY":"top","left":290,"top":243,"width":288.06,"height":93.07,"fill":"#b5f5d7","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.5,"scaleY":0.5,"angle":7,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"text":"Arka Yüz","fontSize":71,"fontWeight":"","fontFamily":"helvetica","fontStyle":"","lineHeight":1.16,"textDecoration":"","textAlign":"left","textBackgroundColor":""}],"background":""}'}]},"field_images":[],"rdf_mapping":{"rdftype":["sioc:Item","foaf:Document"],"title":{"predicates":["dc:title"]},"created":{"predicates":["dc:date","dc:created"],"datatype":"xsd:dateTime","callback":"date_iso8601"},"changed":{"predicates":["dc:modified"],"datatype":"xsd:dateTime","callback":"date_iso8601"},"body":{"predicates":["content:encoded"]},"uid":{"predicates":["sioc:has_creator"],"type":"rel"},"name":{"predicates":["foaf:name"]},"comment_count":{"predicates":["sioc:num_replies"],"datatype":"xsd:integer"},"last_activity":{"predicates":["sioc:last_activity_date"],"datatype":"xsd:dateTime","callback":"date_iso8601"}},"cid":"0","last_comment_timestamp":"1445765528","last_comment_name":null,"last_comment_uid":"2","comment_count":"0","name":"tester","picture":"0","data":null,"path":"http://52.29.91.149/content/user-1"};
+        this.options.userDesign = userDesign;
+        this.options.data.front = userDesign.field_jsons.und[0].front;
+        this.options.data.back = userDesign.field_jsons.und[0].back;
+    }
 
     CardDesign.prototype.putBuildInSvgImages = function() {
         var svgContainer = document.getElementById('svgContainer');
@@ -8105,9 +8122,11 @@ var CardDesign = (function() {
         }
 
         sendPreviewImage.onclick = function() {
+
             var acceptIsChecked = document.getElementById("accept").checked;
             var acceptResult = document.getElementById("accept-result");
             var json = "";
+
             if(acceptIsChecked) {
                 acceptResult.style.display = "none";
                 var imageUrlFront = self.rasterize("front");
@@ -8117,7 +8136,14 @@ var CardDesign = (function() {
                     "back" : imageUrlBack
                 }
 
+                var json = self.rasterizeJSON();
+                self.options.userDesign.field_jsons.und[0].front = json.frontJson;
+                self.options.userDesign.field_jsons.und[0].back = json.backJson;
+                json = self.options.userDesign.field_jsons;
+                this.postData("PUT", self.options.urls.uploadCartDesignUrl, json);
+
                 self.postData("POST", self.options.urls.uploadCartDesignUrl, imageUrls);
+
             }else {
                 acceptResult.innerHTML = "Lütfen tasarımı onaylayınız.";
                 acceptResult.style.display = "block";
@@ -8433,21 +8459,6 @@ var CardDesign = (function() {
         popup.style.display = "block";
     }
 
-    CardDesign.prototype.postData = function(type, url, data) {
-        data.csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
-        $.ajax({
-            url: url,
-            type: type,
-            data: data,
-            success: function(json) {
-                console.log(json.server_response);
-            },
-            error: function(xhr, errmsg, err) {
-                console.log(xhr.status + ": " + xhr.responseText);
-            }
-        });
-    }
-
     CardDesign.prototype.hidePopup = function() {
         var popup = document.getElementById("cardDesignPopup").parentNode;
         popup.style.display = "none";
@@ -8456,7 +8467,70 @@ var CardDesign = (function() {
     CardDesign.prototype.autoSave = function() {
         var self = this;
         var json = self.rasterizeJSON();
-        this.postData("POST", self.options.urls.autoSave, json);
+        self.options.userDesign.field_jsons.und[0].front = json.frontJson;
+        self.options.userDesign.field_jsons.und[0].back = json.backJson;
+        json = self.options.userDesign.field_jsons;
+        this.postData("PUT", self.options.urls.autoSave + "21", json);
+    }
+
+    // SERVICES
+
+    CardDesign.prototype.getService = function(type, url, token) {
+        $.ajax({
+            url: url,
+            type: type,
+            async: false,
+            cache: false,
+            headers: {
+                "X-CSRFToken" : token
+            },
+            success: function(typeData) {
+                return typeData.html();
+            },
+            error: function(xhr, errmsg, err) {
+                console.log(xhr.status + ": " + xhr.responseText);
+            }
+        });
+    }
+
+    CardDesign.prototype.loginService = function(type, url, data, token) {
+        var self = this;
+
+        $.ajax({
+            url: url,
+            type: type,
+            data: data,
+            async: false,
+            cache: false,
+            headers: {
+                "X-CSRFToken" : token
+            },
+            success: function(loginData) {
+                self.options.loginData = loginData;
+            },
+            error: function(xhr, errmsg, err) {
+                console.log(xhr.status + ": " + xhr.responseText);
+            }
+        });
+    }
+
+    CardDesign.prototype.postData = function(type, url, data) {
+        var self = this;
+        data.csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
+        $.ajax({
+            url: url,
+            type: type,
+            data: data,
+            headers: {
+                "X-CSRFToken" : self.options.token
+            },
+            success: function(json) {
+                console.log(json.server_response);
+            },
+            error: function(xhr, errmsg, err) {
+                console.log(xhr.status + ": " + xhr.responseText);
+            }
+        });
     }
 
     return CardDesign;
