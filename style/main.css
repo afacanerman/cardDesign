@@ -46,12 +46,12 @@
 }
 
 .card-design .options-left {
-    width: 40%;
+    width: 50%;
     height: auto;
     float: left;
 }
 .card-design .options-right {
-    width: 60%;
+    width: 50%;
     height: auto;
     float: left;
     text-align: right;
@@ -98,11 +98,8 @@
 .card-design i.line-right:after {
     content: "";
     width: 1px;
-<<<<<<< HEAD
     border: 1px dashed #ddd;
     border-left: none;
-=======
->>>>>>> #000 - Volkan: last changes
     height: calc(100% - 30px);
     top: 15px;
     right: 15px;
@@ -199,6 +196,14 @@
     background-size: 60%;
 }
 
+.card-design .options-left ul li.backToFirstDesign a {
+    background-image: url(../images/icons/backToFirst.png);
+}
+
+.card-design .options-left ul li.toBack a {
+    background-image: url(../images/icons/back.png);
+}
+
 .card-design .options-left ul li.rotate a {
     background-image: url(../images/icons/rotate.png);
 }
@@ -210,10 +215,10 @@
     background-size: 60%;
 }
 
-.card-design li#addShapes {
+.card-design li#addShapes, .card-design li#canvasShape {
     position: relative;
 }
-.card-design li#addShapes ul {
+.card-design li#addShapes ul, .card-design li#canvasShape ul {
     display: none;
     position: absolute;
     background-color: #357ebd;
@@ -223,7 +228,7 @@
     z-index: 2;
 }
 
-.card-design li#addShapes ul li {
+.card-design li#addShapes ul li, .card-design li#canvasShape ul li {
     width: 100%;
     height: 30px;
     margin: 0px;
@@ -231,15 +236,15 @@
     line-height: 30px;
 }
 
-.card-design li#addShapes ul li button {
+.card-design li#addShapes ul li button, .card-design li#canvasShape ul li button {
     width: 100%;
     display: block;
 }
 
-.card-design li#addShapes:hover ul {
+.card-design li#addShapes:hover ul, .card-design li#canvasShape:hover ul {
     display: block;
 }
-.card-design li#addShapes ul li button:hover {
+.card-design li#addShapes ul li button:hover, .card-design li#canvasShape ul li button:hover {
     background-color: #357ebd;
 }
 /* Sub options*/
@@ -313,10 +318,9 @@
     width: 30px;
     height: 30px;
     display: block;
-    padding-left: 40px;
     background-repeat: no-repeat;
     background-position: 3px;
-    background-size: 40%;
+    background-size: 80%;
     background-image: url(../images/icons/opacit.png);
     position: absolute;
     top: 0px;
@@ -341,7 +345,7 @@
     display: none;
 }
 #colorArea {
-    display: none;
+    display: inline-block;
     height: 40px;
     position: relative;
 }
