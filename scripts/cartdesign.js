@@ -7387,6 +7387,7 @@ var CardDesign = (function() {
         }
         this.generateOptionsBar();
         this.generateSubOptionsBar();
+        this.generateEndButtons();
     };
 
     CardDesign.prototype.pageLoaded = function() {
@@ -7582,7 +7583,7 @@ var CardDesign = (function() {
                 top: 100 
             };
 
-        fabric.loadSVGFromURL('../assets/' + shapeName + '.svg', function(objects, options) {
+        fabric.loadSVGFromURL(shapeName, function(objects, options) {
 
             var loadedObject = fabric.util.groupSVGElements(objects, options);
 
@@ -7923,7 +7924,7 @@ var CardDesign = (function() {
             var imageSrc = "";
             if (imagePopup.getElementsByClassName("active").length > 0) {
                 imageSrc = imagePopup.getElementsByClassName("active")[0].getAttribute("src");
-                self.addImage(imageSrc);
+                self.addShape(imageSrc);
                 self.hidePopup();
             } else {
                 alert("Lütfen bir resim seçiniz.")
