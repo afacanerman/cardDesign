@@ -7341,7 +7341,7 @@ var CardDesign = (function() {
         var self = this;
         var activeCanvas = this.getActiveCanvas();
         var activeObject = activeCanvas.getActiveObject();
-        this.saveJson();
+        
         if (activeObject) {
             self.subMenuProcess(activeObject.type);
         }
@@ -7503,6 +7503,7 @@ var CardDesign = (function() {
     }
 
     CardDesign.prototype.activateConsole = function() {
+        this.saveJson();
         var self = this;
         return function() {
             consoleActivation.call(self);
@@ -8017,6 +8018,7 @@ var CardDesign = (function() {
         this.appendToColor();
 
         toBack.onclick = function() {
+            if(self.history.length == 2) return false;
             var activeCanvas = self.getActiveCanvas();
             var canvas =  activeCanvas.lowerCanvasEl.id == "frontCanvas" ? self.history.pop().front : self.history.pop().back;
             var lineCanvas = activeCanvas.lowerCanvasEl.id == "frontCanvas" ? "front" : "back";
