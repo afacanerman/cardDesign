@@ -7257,7 +7257,7 @@ var CardDesign = (function() {
         this.optionsBar = '<div class="option-area clearfix"><div class="content-area"><div class="options-left"><ul><li id="rotateFront"><button class="btn orange" title="Ön Yüz">Ön Yüz</button></li><li id="rotateBack"><button class="btn orange" title="Arka Yüz">Arka Yüz</button></li></ul></div><div class="options-right"><ul><li id="addText"><button title="Metin Ekle">Metin Ekle</button></li><li id="canvasShape"><button title="Tasarım Şekli">Tasarım Şekli</button><ul id="canvasShapeArea"><li><button id="rectangleArea" title="Kare">Kare</button></li><li><button id="circleArea" title="Daire">Daire</button></li><li><button id="triangleArea" title="Üçgen">Üçgen</button></li></ul></li><li id="addShapes"><button title="Şekil Ekle">Şekil Ekle</button><ul id="shapeArea"><li><button id="addRectangle" title="Kare">Kare</button></li><li><button id="addCircle" title="Daire">Daire</button></li><li><button id="addTriangle" title="Üçgen">Üçgen</button></li><li><button id="addLine" title="Çizgi">Çizgi</button></li></ul></li><li id="AddImage"><button title="Resim Ekle">Resim Ekle</button></li></ul></div></div></div>';
         this.subOptionsBar = '<div class="sub-options"> <div class="content-area"> <div class="options-left"> <div class="canvasOptions"><ul><li id="toBack" class="toBack" title="Geri al"><a class="icon" href="javascript:;"></a></li><li id="backToFirstDesign" class="backToFirstDesign" title="İlk halini yükle"><a class="icon" href="javascript:;"></a></li></ul></div><div id="globalOptions"> <ul> <li class="operations"> <select id="operations" class="slct"> <option value="" selected="">İşlemler</option> <option value="delete">Sil</option> <option value="cut">Kes</option> <option value="copy">Kopyala</option> <option value="paste">Yapıştır</option> <option value="addCopy">Kopyasını Ekle</option> <option value="moveToFront">En Öne Getir</option> <option value="moveToBack">En Arkaya Ekle</option> </select> </li><li id="copy-object" class="copy-object"><a class="icon" href="javascirpt:;"></a></li><li id="cut-object" class="cut-object"><a class="icon" href="javascirpt:;"></a></li><li id="paste-object" class="paste-object"><a class="icon" href="javascirpt:;"></a></li><li id="opacity"><input id="object-opacity" type="range" value="100"/></li><li id="delete" class="delete"><a class="icon" href="javascirpt:;"></a></li></ul> </div></div><div class="options-right"> <div id="textOptions"> <ul> <li class="family"> <select id="font-family" class="slct"> <option value="arial">Arial</option> <option value="helvetica" selected="">Helvetica</option> <option value="myriad pro">Myriad Pro</option> <option value="delicious">Delicious</option> <option value="verdana">Verdana</option> <option value="georgia">Georgia</option> <option value="courier">Courier</option> <option value="comic sans ms">Comic Sans MS</option> <option value="impact">Impact</option> <option value="monaco">Monaco</option> <option value="optima">Optima</option> <option value="hoefler text">Hoefler Text</option> <option value="plaster">Plaster</option> <option value="engagement">Engagement</option> </select> </li><li class="size"> <select id="font-size" class="slct"> <option value="10">10</option> <option value="12" selected="">12</option> <option value="14">14</option> <option value="16">16</option> <option value="18">18</option> <option value="24">24</option> <option value="36">36</option> <option value="48">48</option> <option value="72">72</option> <option value="120">120</option> <option value="150">150</option> <option value="180">180</option> <option value="200">200</option> <option value="250">250</option> </select> </li><li id="align-left" class="align-left"><a class="icon" href="javascirpt:;"></a></li><li id="align-center" class="align-center"><a class="icon" href="javascirpt:;"></a></li><li id="align-right" class="align-right"><a class="icon" href="javascirpt:;"></a></li><li id="text-bold" class="text-bold"><a class="icon" href="javascirpt:;"></a></li><li id="text-italic" class="text-italic"><a class="icon" href="javascirpt:;"></a></li><li id="text-underline" class="text-underline"><a class="icon" href="javascirpt:;"></a></li><li id="edit-text" class="edit-text"><a class="icon" href="javascirpt:;"></a></li></ul> </div><div id="colorArea"> <ul> <li id="color-area" class="color-area"> <a class="icon" href="javascirpt:;"></a> <ul id="color-palette"></ul> </li></ul> </div></div></div></div>';
         this.imageUploadForm = '<div id="upload-area"><span class="context">Resim Seç</span><form method="POST" name="form" id="imageUploadForm" enctype="multipart/form-data"> <input type="file" id="img" name="img"/> <div class="buttons"> <input type="submit" class="btn done" id="addSelectedImage" value="Ekle"/> <button class="btn warning" id="cancelAddCustomImage">İptal</button> </div></form></div>'
-        this.popup = '<div class="popup-content"> <div id="cardDesignPopup"> <span class="context">Metin Ekle</span> <textarea id="custom-text" placeholder="Metin Girin"></textarea> <div class="buttons"><button class="btn done" id="editCustomText">Düzenle</button><button class="btn done" id="addCustomText">Ekle</button><button class="btn warning" id="cancelAddCustomText">İptal</button></div></div><div id="cardDesignImagePopup"> <span class="context">Resim Ekle</span> <div class="images clearfix"> <img src="images/svg/1.svg"> <img src="images/svg/2.svg"> <img src="images/svg/3.svg"> <img src="images/svg/4.svg"> <img src="images/svg/5.svg"> <img src="images/svg/6.svg"> <img src="images/svg/7.svg"> <img src="images/svg/8.svg"> <img src="images/svg/9.svg"> <img src="images/svg/10.svg"> </div><div class="buttons"><button class="btn done" id="addCustomImage">Ekle</button> </div> {imageUploadForm}</div><div id="previewPopup"><span class="context">Ön İzleme</span><div class="preview-image-area"><img src="" id="frontPreview"/><img src="" id="backPreview"/></div><div class="checkbox-area"><input type="checkbox" id="accept"/><span class="accept-text">Tasarımı Onaylıyorum.</span><span id="accept-result" class="accept-result"></span></div><div class="buttons"><button class="btn done" id="sendPreviewImage">Gönder</button><button class="btn warning" id="cancelPreviewImage">Düzenlemeye Devam Et</button></div></div></div>';
+        this.popup = '<div class="popup-content"> <div id="cardDesignPopup"> <span class="context">Metin Ekle</span> <textarea id="custom-text" placeholder="Metin Girin"></textarea> <div class="buttons"> <button class="btn done" id="editCustomText">Düzenle</button> <button class="btn done" id="addCustomText">Ekle</button> <button class="btn warning" id="cancelAddCustomText">İptal</button> </div></div><div id="cardDesignImagePopup"> <span class="context">Resim Ekle</span> <div class="imageArea clearfix"> <ul id="imageTab" class="clearfix"> </ul> <div id="imagesTab" class="images clearfix"></div></div><div class="buttons"> <button class="btn done" id="addCustomImage">Ekle</button> </div><div id="upload-area"><span class="context">Resim Seç</span> <form method="POST" name="form" id="imageUploadForm" enctype="multipart/form-data"> <input type="file" id="img" name="img"> <div class="buttons"> <input type="submit" class="btn done" id="addSelectedImage" value="Ekle"> <button class="btn warning" id="cancelAddCustomImage">İptal</button> </div></form> </div></div><div id="previewPopup"><span class="context">Ön İzleme</span> <div class="preview-image-area"><img src="" id="frontPreview"><img src="" id="backPreview"> </div><div class="checkbox-area"> <input type="checkbox" id="accept"><span class="accept-text">Tasarımı Onaylıyorum.</span><span id="accept-result" class="accept-result"></span> </div><div class="buttons"> <button class="btn done" id="sendPreviewImage">Gönder</button> <button class="btn warning" id="cancelPreviewImage">Düzenlemeye Devam Et</button> </div></div></div>';
         this.endButtons = '<div class="endButtons"><ul><li id="preview"><button class="btn orange">Bitti Ön izlemeyi Gör</button></li></li></ul></div>';
         this.options = options;
         this.copyArray = [];
@@ -7315,7 +7315,7 @@ var CardDesign = (function() {
         this.injectGoogleFonts();
 
         //Init Settings Buttons
-        this.putBuildInSvgImages();
+        this.putBuildInSvgImages(0, 0);
         this.generateOptionsBar();
         this.generateSubOptionsBar();
         this.generateEndButtons();
@@ -7341,7 +7341,7 @@ var CardDesign = (function() {
         var self = this;
         var activeCanvas = this.getActiveCanvas();
         var activeObject = activeCanvas.getActiveObject();
-        this.saveJson();
+        
         if (activeObject) {
             self.subMenuProcess(activeObject.type);
         }
@@ -7362,19 +7362,32 @@ var CardDesign = (function() {
         this.options.data.back = userDesign.field_jsons.und[0].back;
     }
 
-    CardDesign.prototype.putBuildInSvgImages = function() {
-        var svgContainer = document.getElementById('svgContainer');
+    CardDesign.prototype.putBuildInSvgImages = function(dataId, first) {
+        var self = this;
+        var svgContainer = document.getElementById('imagesTab');
+        var containerTab = document.getElementById('imageTab');
+        var isActive = "";
+        var imageHtml = "";
+        if(first == 0 ) {
+            for(var i = 0; i < this.options.buildInImages.length; i++) {
+                isActive = i == 0 ? "active" : "";
+                imageHtml += "<li id=" + this.options.buildInImages[i].name + " data-sort=" + i + " class=" + isActive + ">" + this.options.buildInImages[i].name + "</li>"
+            }
 
-        if (svgContainer && this.options.buildInImages.social && this.options.buildInImages.social.length > 0) {
-
-            for (var i = 0; i < this.options.buildInImages.social.length; i++) {
-                var element = document.createElement("img");
-                element.setAttribute('src', this.options.buildInImages.social[i]);
-                svgContainer.appendChild(element);
-            };
-
+            containerTab.innerHTML = imageHtml;
         }
 
+        if (svgContainer && this.options.buildInImages.length > 0) {
+            svgContainer.innerHTML = "";
+            for (var i = 0; i < this.options.buildInImages[dataId].data.length; i++) {
+                var element = document.createElement("img");
+                element.setAttribute('src', this.options.buildInImages[dataId].data[i]);
+                svgContainer.appendChild(element);
+            };
+        }
+        this.generateOptionsBar();
+        this.generateSubOptionsBar();
+        this.generateEndButtons();
     };
 
     CardDesign.prototype.pageLoaded = function() {
@@ -7491,6 +7504,7 @@ var CardDesign = (function() {
     }
 
     CardDesign.prototype.activateConsole = function() {
+        this.saveJson();
         var self = this;
         return function() {
             consoleActivation.call(self);
@@ -7569,7 +7583,7 @@ var CardDesign = (function() {
                 top: 100 
             };
 
-        fabric.loadSVGFromURL('../assets/' + shapeName + '.svg', function(objects, options) {
+        fabric.loadSVGFromURL(shapeName, function(objects, options) {
 
             var loadedObject = fabric.util.groupSVGElements(objects, options);
 
@@ -7686,7 +7700,8 @@ var CardDesign = (function() {
             lockRotation: true,
             lockScalingX: true,
             selectable: false,
-            type: "cd-line"
+            type: "",
+            subType: "cd-line"
         });
 
         var topOuter = new fabric.Line([25, 20, self.options.width, 20], {
@@ -7697,7 +7712,8 @@ var CardDesign = (function() {
             lockRotation: true,
             lockScalingX: true,
             selectable: false,
-            type: "cd-line"
+            type: "",
+            subType: "cd-line"
         });
 
         var topLeftInnerY = new fabric.Line([120, self.options.height - 50, 120, 0], {
@@ -7708,7 +7724,8 @@ var CardDesign = (function() {
             lockRotation: true,
             lockScalingX: true,
             selectable: false,
-            type: "cd-line"
+            type: "",
+            subType: "cd-line"
         });
 
         var topLeftOuterY = new fabric.Line([100, self.options.height - 25, 100, 0], {
@@ -7719,7 +7736,8 @@ var CardDesign = (function() {
             lockRotation: true,
             lockScalingX: true,
             selectable: false,
-            type: "cd-line"
+            type: "",
+            subType: "cd-line"
         });
 
          var topRightInnerY = new fabric.Line([120, self.options.height - 50, 120, 0], {
@@ -7730,7 +7748,8 @@ var CardDesign = (function() {
             lockRotation: true,
             lockScalingX: true,
             selectable: false,
-            type: "cd-line"
+            type: "",
+            subType: "cd-line"
         });
 
         var topRightOuterY = new fabric.Line([100, self.options.height - 25, 100, 0], {
@@ -7741,7 +7760,8 @@ var CardDesign = (function() {
             lockRotation: true,
             lockScalingX: true,
             selectable: false,
-            type: "cd-line"
+            type: "",
+            subType: "cd-line"
         });
 
 
@@ -7753,7 +7773,8 @@ var CardDesign = (function() {
             lockRotation: true,
             lockScalingX: true,
             selectable: false,
-            type: "cd-line"
+            type: "",
+            subType: "cd-line"
         });
 
         var bottomOuter = new fabric.Line([25, 20, self.options.width, 20], {
@@ -7764,7 +7785,8 @@ var CardDesign = (function() {
             lockRotation: true,
             lockScalingX: true,
             selectable: false,
-            type: "cd-line"
+            type: "",
+            subType: "cd-line"
         });
 
         activeCanvas.add(topInner);
@@ -7780,7 +7802,7 @@ var CardDesign = (function() {
     CardDesign.prototype.removeLines = function() {
         var activeCanvas = this.getActiveCanvas();
         for(var i = 0;i < activeCanvas._objects.length; i++) {
-             if(activeCanvas._objects[i].type == "cd-line") {
+             if(activeCanvas._objects[i].subType == "cd-line") {
                 activeCanvas._objects.splice(i, 1);
                 i--;
              }
@@ -7815,7 +7837,7 @@ var CardDesign = (function() {
 
                         image.on('click', function() {
                             debugger;
-                            var imagePopup = document.getElementById("cardDesignImagePopup");
+                            var imagePopup = document.getElementById("imagesTab");
                             self.activateImage(imagePopup);
                             $(this).addClass('active');
                         });
@@ -7855,8 +7877,9 @@ var CardDesign = (function() {
         var addTriangle = document.getElementById("addTriangle");
         var addLine = document.getElementById("addLine");
         var textArea = document.getElementById("custom-text");
-        var imagePopup = document.getElementById("cardDesignImagePopup");
+        var imagePopup = document.getElementById("imagesTab");
         var addCustomImage = document.getElementById("addCustomImage");
+        var imageTab = document.getElementById("imageTab").getElementsByTagName("li");
         var cancelAddCustomImage = document.getElementById("cancelAddCustomImage");
         var frontId = "frontCanvas";
         var backId = "backCanvas";
@@ -7901,12 +7924,26 @@ var CardDesign = (function() {
             var imageSrc = "";
             if (imagePopup.getElementsByClassName("active").length > 0) {
                 imageSrc = imagePopup.getElementsByClassName("active")[0].getAttribute("src");
-                self.addImage(imageSrc);
+                self.addShape(imageSrc);
                 self.hidePopup();
             } else {
                 alert("Lütfen bir resim seçiniz.")
             }
         }
+
+        for(var i = 0; i < imageTab.length; i++) {
+            imageTab[i].onclick = function() {
+                var tabId = this.id;
+                var sortId = this.getAttribute("data-sort");
+                for(var i = 0; i < imageTab.length; i++) {
+                    if(imageTab[i].className == "active") { imageTab[i].classList.remove("active"); }
+                }
+
+                if(this.class != "active") {this.classList.add("active");}
+                self.putBuildInSvgImages(sortId, 1);
+            }
+        }
+
         cancelAddCustomImage.onclick = function() {
             self.hidePopup();
         }
@@ -7922,6 +7959,10 @@ var CardDesign = (function() {
         addLine.onclick = function() {
             self.addLine();
         }
+    }
+
+    CardDesign.prototype.setSvgImages = function(tabId) {
+
     }
 
     CardDesign.prototype.activateImage = function(imagePopup) {
@@ -7978,6 +8019,7 @@ var CardDesign = (function() {
         this.appendToColor();
 
         toBack.onclick = function() {
+            if(self.history.length == 2) return false;
             var activeCanvas = self.getActiveCanvas();
             var canvas =  activeCanvas.lowerCanvasEl.id == "frontCanvas" ? self.history.pop().front : self.history.pop().back;
             var lineCanvas = activeCanvas.lowerCanvasEl.id == "frontCanvas" ? "front" : "back";
