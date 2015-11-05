@@ -448,6 +448,10 @@
     border-top: 1px solid #e5e5e5;
 }
 
+#cardDesignImagePopup .buttons {
+    border-top: none;
+}
+
 #cardDesignPopup .buttons .btn,
 #cardDesignImagePopup .buttons .btn,
 #previewPopup .buttons .btn {
@@ -515,7 +519,38 @@
     display: block;
 }
 
+#cardDesignImagePopup ul {
+    width: 30%;
+    padding: 0px;
+    margin: 0px;
+    float: left;
+}
+
+#cardDesignImagePopup ul li {
+    width: 100%;
+    height: 30px;
+    padding: 10px 8px;
+    margin-bottom: 2px;
+    list-style: none;
+    font-family: Arial;
+    font-size: 13px;
+    color: #428bca;
+    cursor: pointer;
+}
+
+#cardDesignImagePopup ul li:hover, #cardDesignImagePopup ul li.active {
+    background-color: #428bca;
+    color: white;
+}
+
 #cardDesignImagePopup .images {
+    width: 70%;
+    float: left;
+    padding-left: 20px;
+}
+
+#cardDesignImagePopup .imageArea {
+    width: 100%;
     padding: 20px;
 }
 
