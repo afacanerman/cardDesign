@@ -352,14 +352,16 @@
 #colorArea ul li {
     width: 20px;
     height: 20px;
-    margin: 10px 5px;
+    margin: 10px 5px 0;
     margin-right: 0px;
     border: 1px solid #999;
+    background-color: #FFF;
 }
 
 #color-palette {
-    width: 155px;
+    min-width: 392px;
     height: auto;
+    padding-bottom: 10px;
     display: none;
     position: absolute;
     top: 100%;
@@ -454,7 +456,8 @@
 
 #cardDesignPopup .buttons .btn,
 #cardDesignImagePopup .buttons .btn,
-#previewPopup .buttons .btn {
+#previewPopup .buttons .btn,
+#imageUploadForm .btn {
     width: auto;
     height: auto;
     margin-right: 5px;
@@ -472,7 +475,8 @@
 
 #cardDesignPopup .buttons .btn.done,
 #cardDesignImagePopup .buttons .btn.done,
-#previewPopup .buttons .btn.done {
+#previewPopup .buttons .btn.done,
+#imageUploadForm .btn.done {
     background-color: #428bca;
 }
 
@@ -634,4 +638,8 @@
 
 #rightClickMenu.text li.if-text {
     display: block;
+}
+
+#imageUploadForm #img {
+    margin-left: 20px;
 }
