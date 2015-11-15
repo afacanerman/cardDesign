@@ -7253,15 +7253,17 @@ var CardDesign = (function() {
         var self = this;
         this.siteUrl = "http://52.29.91.149/";
 
+        this.isHistoryEvent = 0;
         this.canvasLine = '<div id="lines"><ul id="rightClickMenu"><li class="if-image">Resmi Düzenle</li><li class="if-text">Metni Düzenle</li><li class="with-border">Sil</li><li>Kes</li><li>Kopyala</li><li>Yapıştır</li><li class="with-border">Kopyasını Ekle</li><li>En öne getir</li><li>En arkaya ekle</li></ul></div>';
-        this.optionsBar = '<div class="option-area clearfix"><div class="content-area"><div class="options-left"><ul><li id="rotateFront"><button class="btn orange" title="Ön Yüz">Ön Yüz</button></li><li id="rotateBack"><button class="btn orange" title="Arka Yüz">Arka Yüz</button></li></ul></div><div class="options-right"><ul><li id="addText"><button title="Metin Ekle">Metin Ekle</button></li><li id="canvasShape"><button title="Tasarım Şekli">Tasarım Şekli</button><ul id="canvasShapeArea"><li><button id="rectangleArea" title="Kare">Kare</button></li><li><button id="circleArea" title="Daire">Daire</button></li><li><button id="triangleArea" title="Üçgen">Üçgen</button></li></ul></li><li id="addShapes"><button title="Şekil Ekle">Şekil Ekle</button><ul id="shapeArea"><li><button id="addRectangle" title="Kare">Kare</button></li><li><button id="addCircle" title="Daire">Daire</button></li><li><button id="addTriangle" title="Üçgen">Üçgen</button></li><li><button id="addLine" title="Çizgi">Çizgi</button></li></ul></li><li id="AddImage"><button title="Resim Ekle">Resim Ekle</button></li></ul></div></div></div>';
+        this.optionsBar = '<div class="option-area clearfix"><div class="content-area"><div class="options-left"><ul><li id="rotateFront"><button class="btn orange" title="Ön Yüz">Ön Yüz</button></li><li id="rotateBack"><button class="btn orange" title="Arka Yüz">Arka Yüz</button></li></ul></div><div class="options-right"><ul><li id="addText"><button title="Metin Ekle">Metin Ekle</button></li><li id="addShapes"><button title="Şekil Ekle">Şekil Ekle</button><ul id="shapeArea"><li><button id="addRectangle" title="Kare">Kare</button></li><li><button id="addCircle" title="Daire">Daire</button></li><li><button id="addTriangle" title="Üçgen">Üçgen</button></li><li><button id="addLine" title="Çizgi">Çizgi</button></li></ul></li><li id="AddImage"><button title="Resim Ekle">Resim Ekle</button></li></ul></div></div></div>';
         this.subOptionsBar = '<div class="sub-options"> <div class="content-area"> <div class="options-left"> <div class="canvasOptions"><ul><li id="toBack" class="toBack" title="Geri al"><a class="icon" href="javascript:;"></a></li><li id="backToFirstDesign" class="backToFirstDesign" title="İlk halini yükle"><a class="icon" href="javascript:;"></a></li></ul></div><div id="globalOptions"> <ul> <li class="operations"> <select id="operations" class="slct"> <option value="" selected="">İşlemler</option> <option value="delete">Sil</option> <option value="cut">Kes</option> <option value="copy">Kopyala</option> <option value="paste">Yapıştır</option> <option value="addCopy">Kopyasını Ekle</option> <option value="moveToFront">En Öne Getir</option> <option value="moveToBack">En Arkaya Ekle</option> </select> </li><li id="copy-object" class="copy-object"><a class="icon" href="javascirpt:;"></a></li><li id="cut-object" class="cut-object"><a class="icon" href="javascirpt:;"></a></li><li id="paste-object" class="paste-object"><a class="icon" href="javascirpt:;"></a></li><li id="opacity"><input id="object-opacity" type="range" value="100"/></li><li id="delete" class="delete"><a class="icon" href="javascirpt:;"></a></li></ul> </div></div><div class="options-right"> <div id="textOptions"> <ul> <li class="family"> <select id="font-family" class="slct"> <option value="arial">Arial</option> <option value="helvetica" selected="">Helvetica</option> <option value="myriad pro">Myriad Pro</option> <option value="delicious">Delicious</option> <option value="verdana">Verdana</option> <option value="georgia">Georgia</option> <option value="courier">Courier</option> <option value="comic sans ms">Comic Sans MS</option> <option value="impact">Impact</option> <option value="monaco">Monaco</option> <option value="optima">Optima</option> <option value="hoefler text">Hoefler Text</option> <option value="plaster">Plaster</option> <option value="engagement">Engagement</option> </select> </li><li class="size"> <select id="font-size" class="slct"> <option value="10">10</option> <option value="12" selected="">12</option> <option value="14">14</option> <option value="16">16</option> <option value="18">18</option> <option value="24">24</option> <option value="36">36</option> <option value="48">48</option> <option value="72">72</option> <option value="120">120</option> <option value="150">150</option> <option value="180">180</option> <option value="200">200</option> <option value="250">250</option> </select> </li><li id="align-left" class="align-left"><a class="icon" href="javascirpt:;"></a></li><li id="align-center" class="align-center"><a class="icon" href="javascirpt:;"></a></li><li id="align-right" class="align-right"><a class="icon" href="javascirpt:;"></a></li><li id="text-bold" class="text-bold"><a class="icon" href="javascirpt:;"></a></li><li id="text-italic" class="text-italic"><a class="icon" href="javascirpt:;"></a></li><li id="text-underline" class="text-underline"><a class="icon" href="javascirpt:;"></a></li><li id="edit-text" class="edit-text"><a class="icon" href="javascirpt:;"></a></li></ul> </div><div id="colorArea"> <ul> <li id="color-area" class="color-area"> <a class="icon" href="javascirpt:;"></a> <ul id="color-palette"></ul> </li></ul> </div></div></div></div>';
         this.imageUploadForm = '<div id="upload-area"><span class="context">Resim Seç</span><form method="POST" name="form" id="imageUploadForm" enctype="multipart/form-data"> <input type="file" id="img" name="img"/> <div class="buttons"> <input type="submit" class="btn done" id="addSelectedImage" value="Ekle"/> <button class="btn warning" id="cancelAddCustomImage">İptal</button> </div></form></div>'
-        this.popup = '<div class="popup-content"> <div id="cardDesignPopup"> <span class="context">Metin Ekle</span> <textarea id="custom-text" placeholder="Metin Girin"></textarea> <div class="buttons"> <button class="btn done" id="editCustomText">Düzenle</button> <button class="btn done" id="addCustomText">Ekle</button> <button class="btn warning" id="cancelAddCustomText">İptal</button> </div></div><div id="cardDesignImagePopup"> <span class="context">Resim Ekle</span> <div class="imageArea clearfix"> <ul id="imageTab" class="clearfix"> </ul> <div id="imagesTab" class="images clearfix"></div></div><div class="buttons"> <button class="btn done" id="addCustomImage">Ekle</button> </div><div id="upload-area"><span class="context">Resim Seç</span> <form method="POST" name="form" id="imageUploadForm" enctype="multipart/form-data"> <input type="file" id="img" name="img"> <div class="buttons"> <input type="submit" class="btn done" id="addSelectedImage" value="Ekle"> <button class="btn warning" id="cancelAddCustomImage">İptal</button> </div></form> </div></div><div id="previewPopup"><span class="context">Ön İzleme</span> <div class="preview-image-area"><img src="" id="frontPreview"><img src="" id="backPreview"> </div><div class="checkbox-area"> <input type="checkbox" id="accept"><span class="accept-text">Tasarımı Onaylıyorum.</span><span id="accept-result" class="accept-result"></span> </div><div class="buttons"> <button class="btn done" id="sendPreviewImage">Gönder</button> <button class="btn warning" id="cancelPreviewImage">Düzenlemeye Devam Et</button> </div></div></div>';
+        this.popup = '<div class="popup-content"> <div id="cardDesignPopup"> <span class="context">Metin Ekle</span> <textarea id="custom-text" placeholder="Metin Girin"></textarea> <div class="buttons"> <button class="btn done" id="editCustomText">Düzenle</button> <button class="btn done" id="addCustomText">Ekle</button> <button class="btn warning" id="cancelAddCustomText">İptal</button> </div></div><div id="cardDesignImagePopup"> <span class="context">Resim Ekle</span> <div class="imageArea clearfix"> <ul id="imageTab" class="clearfix"> </ul> <div id="imagesTab" class="images clearfix"></div></div><div class="buttons"> <button class="btn done" id="addCustomImage">Ekle</button> </div><div id="upload-area"><span class="context">Resim Seç</span> <form method="POST" name="form" id="imageUploadForm" enctype="multipart/form-data"> <input type="file" id="img" name="img"> <input type="submit" class="btn done" id="addSelectedImage" value="Yükle"> <div class="buttons"> <button class="btn warning" id="cancelAddCustomImage">İptal</button> </div></form> </div></div><div id="previewPopup"><span class="context">Ön İzleme</span> <div class="preview-image-area"><img src="" id="frontPreview"><img src="" id="backPreview"> </div><div class="checkbox-area"> <input type="checkbox" id="accept"><span class="accept-text">Tasarımı Onaylıyorum.</span><span id="accept-result" class="accept-result"></span> </div><div class="buttons"> <button class="btn done" id="sendPreviewImage">Gönder</button> <button class="btn warning" id="cancelPreviewImage">Düzenlemeye Devam Et</button> </div></div></div>';
         this.endButtons = '<div class="endButtons"><ul><li id="preview"><button class="btn orange">Bitti Ön izlemeyi Gör</button></li></li></ul></div>';
         this.options = options;
         this.copyArray = [];
         this.history = [];
+
         this.firstJson = this.options.data;
         this.initData(self.siteUrl);
         
@@ -7288,6 +7290,9 @@ var CardDesign = (function() {
             width: this.options.width,
             height: this.options.height
         });
+
+        this.front_canvas.selection = false;
+        this.front_canvas.selection = false;
 
         // bind canvas events
         this.front_canvas.on("mouse:up", self.activateConsole());
@@ -7335,15 +7340,37 @@ var CardDesign = (function() {
 
         // Auto Save
         setInterval(self.autoSave.bind(this), 40000);
+        this.saveJson();
+
+        this.front_canvas.on('object:modified', function() {
+            self.saveJson();
+        });
+
+        this.front_canvas.on('object:added', function() {
+            if(this.isHistoryEvent == 0) {
+                self.saveJson();
+            }
+        });
+
+        this.back_canvas.on('object:modified', function() {
+            self.saveJson();
+        });
+
+        this.back_canvas.on('object:added', function() {
+            self.saveJson();
+        });
+
     }
 
     var consoleActivation = function() {
         var self = this;
         var activeCanvas = this.getActiveCanvas();
         var activeObject = activeCanvas.getActiveObject();
-        
+
         if (activeObject) {
             self.subMenuProcess(activeObject.type);
+        }else {
+            self.subMenuProcess("null");
         }
     };
 
@@ -7353,10 +7380,10 @@ var CardDesign = (function() {
         var CSRFToken = this.getService("GET", this.siteUrl + "services/session/token", "");
         self.options.token = CSRFToken;
         this.loginService("POST", siteUrl + "api/tasarim/user/login", {"username" : "tester", "password" : "qazxsw"}, CSRFToken);
-        var userId = this.getService("GET", this.siteUrl + "api/tasarim/system/connect", CSRFToken);
-        self.options.userId = userId;
-        var userDesign = this.getService("GET", this.siteUrl + "api/tasarim/node/21", CSRFToken);
-        userDesign = {"vid":"21","uid":"2","title":"User","log":"","status":"1","comment":"1","promote":"0","sticky":"0","nid":"21","type":"tasarimlar","language":"und","created":"1445765528","changed":"1446016858","tnid":"0","translate":"0","revision_timestamp":"1446016858","revision_uid":"2","body":{"und":[{"value":"This is the body of the page.","summary":"","format":"filtered_html","safe_value":"<p>This is the body of the page.</p>\n","safe_summary":""}]},"field_jsons":{"und":[{"front":'{"objects":[{"type":"rect","originX":"left","originY":"top","left":-21.33,"top":-13,"width":50,"height":50,"fill":"#920a17","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":14.38,"scaleY":12.02,"angle":0,"flipX":false,"flipY":false,"opacity":0.8,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"rx":0,"ry":0},{"type":"text","originX":"left","originY":"top","left":290,"top":243,"width":236.78,"height":93.07,"fill":"#b5f5d7","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.5,"scaleY":0.5,"angle":7,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"text":"Ön Yüz","fontSize":71,"fontWeight":"","fontFamily":"helvetica","fontStyle":"","lineHeight":1.16,"textDecoration":"","textAlign":"left","textBackgroundColor":""}],"background":""}',"back":'{"objects":[{"type":"rect","originX":"left","originY":"top","left":-21.33,"top":-13,"width":50,"height":50,"fill":"#920a17","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":14.38,"scaleY":12.02,"angle":0,"flipX":false,"flipY":false,"opacity":0.8,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"rx":0,"ry":0},{"type":"text","originX":"left","originY":"top","left":290,"top":243,"width":288.06,"height":93.07,"fill":"#b5f5d7","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.5,"scaleY":0.5,"angle":7,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"text":"Arka Yüz","fontSize":71,"fontWeight":"","fontFamily":"helvetica","fontStyle":"","lineHeight":1.16,"textDecoration":"","textAlign":"left","textBackgroundColor":""}],"background":""}'}]},"field_images":[],"rdf_mapping":{"rdftype":["sioc:Item","foaf:Document"],"title":{"predicates":["dc:title"]},"created":{"predicates":["dc:date","dc:created"],"datatype":"xsd:dateTime","callback":"date_iso8601"},"changed":{"predicates":["dc:modified"],"datatype":"xsd:dateTime","callback":"date_iso8601"},"body":{"predicates":["content:encoded"]},"uid":{"predicates":["sioc:has_creator"],"type":"rel"},"name":{"predicates":["foaf:name"]},"comment_count":{"predicates":["sioc:num_replies"],"datatype":"xsd:integer"},"last_activity":{"predicates":["sioc:last_activity_date"],"datatype":"xsd:dateTime","callback":"date_iso8601"}},"cid":"0","last_comment_timestamp":"1445765528","last_comment_name":null,"last_comment_uid":"2","comment_count":"0","name":"tester","picture":"0","data":null,"path":"http://52.29.91.149/content/user-1"};
+        var userId = self.options.userId;
+        var objeId = self.options.objeId;
+        var userDesign = this.getService("GET", this.siteUrl + "api/tasarim/node/" + objeId, CSRFToken);
+        userDesign = {"vid":"21","uid":"2","title":"User","log":"","status":"1","comment":"1","promote":"0","sticky":"0","nid":"21","type":"tasarimlar","language":"und","created":"1445765528","changed":"1446016858","tnid":"0","translate":"0","revision_timestamp":"1446016858","revision_uid":"2","body":{"und":[{"value":"This is the body of the page.","summary":"","format":"filtered_html","safe_value":"<p>This is the body of the page.</p>\n","safe_summary":""}]},"field_jsons":{"und":[{"front":'{"objects":[{"type":"rect","originX":"left","originY":"top","left":-21.33,"top":-13,"width":50,"height":50,"fill":"#920a17","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":14.38,"scaleY":12.02,"angle":0,"flipX":false,"flipY":false,"opacity":0.8,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"rx":0,"ry":0},{"type":"i-text","originX":"left","originY":"top","left":290,"top":243,"width":236.78,"height":93.07,"fill":"#b5f5d7","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.5,"scaleY":0.5,"angle":7,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"text":"Ön Yüz","fontSize":71,"fontWeight":"","fontFamily":"helvetica","fontStyle":"","lineHeight":1.16,"textDecoration":"","textAlign":"left","textBackgroundColor":""}],"background":""}',"back":'{"objects":[{"type":"rect","originX":"left","originY":"top","left":-21.33,"top":-13,"width":50,"height":50,"fill":"#920a17","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":14.38,"scaleY":12.02,"angle":0,"flipX":false,"flipY":false,"opacity":0.8,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"rx":0,"ry":0},{"type":"i-text","originX":"left","originY":"top","left":290,"top":243,"width":288.06,"height":93.07,"fill":"#b5f5d7","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.5,"scaleY":0.5,"angle":7,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"text":"Arka Yüz","fontSize":71,"fontWeight":"","fontFamily":"helvetica","fontStyle":"","lineHeight":1.16,"textDecoration":"","textAlign":"left","textBackgroundColor":""}],"background":""}'}]},"field_images":[],"rdf_mapping":{"rdftype":["sioc:Item","foaf:Document"],"title":{"predicates":["dc:title"]},"created":{"predicates":["dc:date","dc:created"],"datatype":"xsd:dateTime","callback":"date_iso8601"},"changed":{"predicates":["dc:modified"],"datatype":"xsd:dateTime","callback":"date_iso8601"},"body":{"predicates":["content:encoded"]},"uid":{"predicates":["sioc:has_creator"],"type":"rel"},"name":{"predicates":["foaf:name"]},"comment_count":{"predicates":["sioc:num_replies"],"datatype":"xsd:integer"},"last_activity":{"predicates":["sioc:last_activity_date"],"datatype":"xsd:dateTime","callback":"date_iso8601"}},"cid":"0","last_comment_timestamp":"1445765528","last_comment_name":null,"last_comment_uid":"2","comment_count":"0","name":"tester","picture":"0","data":null,"path":"http://52.29.91.149/content/user-1"};
         this.options.userDesign = userDesign;
         this.options.data.front = userDesign.field_jsons.und[0].front;
         this.options.data.back = userDesign.field_jsons.und[0].back;
@@ -7504,7 +7531,6 @@ var CardDesign = (function() {
     }
 
     CardDesign.prototype.activateConsole = function() {
-        this.saveJson();
         var self = this;
         return function() {
             consoleActivation.call(self);
@@ -7557,12 +7583,13 @@ var CardDesign = (function() {
         this.getActiveCanvas().renderAll();
     };
 
-    CardDesign.prototype.addImage = function(imageName, minScale, maxScale) {
+    CardDesign.prototype.addImage = function(imageName, minScale, maxScale, top) {
+        top = !top ? 100 : top;
 
         var self = this,
             coord = {
                 left: 100,
-                top: 100 
+                top: top 
             };
 
         fabric.Image.fromURL(imageName, function(image) {
@@ -7593,7 +7620,7 @@ var CardDesign = (function() {
                 })
                 .setCoords();
 
-            self.canvas.add(loadedObject);
+            self.getActiveCanvas().add(loadedObject);
         });
     };
 
@@ -7616,11 +7643,10 @@ var CardDesign = (function() {
         var self = this;
 
         var activeCanvas = self.getActiveCanvas();
-        var coord = getRandomLeftTop();
 
         activeCanvas.add(new fabric.Rect({
-          left: coord.left,
-          top: coord.top,
+          left: 100,
+          top: 100,
           fill: '#' + getRandomColor(),
           width: 50,
           height: 50,
@@ -7632,11 +7658,10 @@ var CardDesign = (function() {
         var self = this;
 
         var activeCanvas = self.getActiveCanvas();
-        var coord = getRandomLeftTop();
 
         activeCanvas.add(new fabric.Circle({
-          left: coord.left,
-          top: coord.top,
+          left: 100,
+          top: 100,
           fill: '#' + getRandomColor(),
           radius: 50,
           opacity: 1
@@ -7647,11 +7672,10 @@ var CardDesign = (function() {
         var self = this;
 
         var activeCanvas = self.getActiveCanvas();
-        var coord = getRandomLeftTop();
 
         activeCanvas.add(new fabric.Triangle({
-          left: coord.left,
-          top: coord.top,
+          left: 100,
+          top: 100,
           fill: '#' + getRandomColor(),
           width: 50,
           height: 50,
@@ -7663,11 +7687,10 @@ var CardDesign = (function() {
         var self = this;
 
         var activeCanvas = self.getActiveCanvas();
-        var coord = getRandomLeftTop();
 
         activeCanvas.add(new fabric.Line([ 50, 100, 200, 200], {
-          left: coord.left,
-          top: coord.top,
+          left: 100,
+          top: 100,
           stroke: '#' + getRandomColor()
         }));
       };
@@ -7797,6 +7820,24 @@ var CardDesign = (function() {
         activeCanvas.add(topRightInnerY);
         activeCanvas.add(bottomInner);
         activeCanvas.add(bottomOuter);
+
+        /*var coord = {
+                left: 100,
+                top: 18 
+            };
+
+        fabric.Image.fromURL("images/icons/cut-1.png", function(image) {
+
+            image.set({
+                left: coord.left,
+                top: coord.top,
+                lockRotation: true,
+                lockScalingX: true,
+                selectable: false
+            });
+
+            activeCanvas.add(image);
+        });*/
     }
 
     CardDesign.prototype.removeLines = function() {
@@ -7830,8 +7871,17 @@ var CardDesign = (function() {
                     success: function(data) {
                         debugger;
                         console.log(data);
-                        var image = $('<img src="' + data.uploadedFile + '" />');
-                        $('#svgContainer').append(image);
+                        //var image = $('<img src="' + data.uploadedFile + '" />');
+                        //$('#svgContainer').append(image);
+                        self.AddImage(data.uploadedFile);
+                        self.sendImageData(data);
+                        for(var i = 0; i < self.options.buildInImages.length; i++) {
+                            if(self.options.buildInImages[i].name == "Diğer") {
+                                self.options.buildInImages[i].data.push(data.uploadedFile);
+                                self.putBuildInSvgImages(0, 0);
+                                return false;
+                            }
+                        }
                         var input = $('#imageUploadForm input[type=file]');
                         input.replaceWith(input.val('').clone(true));
 
@@ -7841,6 +7891,8 @@ var CardDesign = (function() {
                             self.activateImage(imagePopup);
                             $(this).addClass('active');
                         });
+
+                        self.hidePopup();
                     },
                     error: function(data) {
                         debugger;
@@ -7870,8 +7922,6 @@ var CardDesign = (function() {
         var addTextDone = document.getElementById("addCustomText");
         var cancelAddText = document.getElementById("cancelAddCustomText");
         var addImage = document.getElementById("AddImage");
-        var rectangleArea = document.getElementById("rectangleArea");
-        var triangleArea = document.getElementById("triangleArea");
         var addRectangle = document.getElementById("addRectangle");
         var addCircle = document.getElementById("addCircle");
         var addTriangle = document.getElementById("addTriangle");
@@ -7910,12 +7960,6 @@ var CardDesign = (function() {
         }
         addImage.onclick = function() {
             self.showPopup("image");
-        }
-        rectangleArea.onclick = function() {
-            var activeCanvas = self.getActiveCanvas();
-            var lineCanvas = activeCanvas.lowerCanvasEl.id == "frontCanvas" ? "front" : "back";
-            self.removeLines();
-            self.addRectangleArea(lineCanvas);
         }
 
         self.activateImage(imagePopup)
@@ -8019,14 +8063,20 @@ var CardDesign = (function() {
         this.appendToColor();
 
         toBack.onclick = function() {
-            if(self.history.length == 2) return false;
+            if(self.history.length == 0) return false;
+            this.isHistoryEvent = 1;
             var activeCanvas = self.getActiveCanvas();
-            var canvas =  activeCanvas.lowerCanvasEl.id == "frontCanvas" ? self.history.pop().front : self.history.pop().back;
+            if(self.history.length > 1) {
+                var canvas =  activeCanvas.lowerCanvasEl.id == "frontCanvas" ? self.history.pop().front : self.history.pop().back;
+            }else {
+                var canvas =  activeCanvas.lowerCanvasEl.id == "frontCanvas" ? self.history[0].front : self.history[0].back;
+            }
             var lineCanvas = activeCanvas.lowerCanvasEl.id == "frontCanvas" ? "front" : "back";
-            activeCanvas.loadFromJSON(JSON.parse(canvas), function() {
-                self.addRectangleArea(lineCanvas);
-                activeCanvas.renderAll();
-            });
+            activeCanvas.clear().renderAll();
+            activeCanvas.loadFromJSON(canvas);
+            self.addRectangleArea(lineCanvas);
+            activeCanvas.renderAll();
+            this.isHistoryEvent = 0;
         }
 
         backToFirstDesign.onclick = function() {
@@ -8153,6 +8203,7 @@ var CardDesign = (function() {
         var selectedBgColor = this.getFill();
         var selectedOpacity = this.getOpacity();
         var selectedFontSize = this.getFontSize();
+        var canvasBgColor = this.getCanvasBgColor();
 
         colorArea.style.backgroundColor = selectedBgColor;
         opacityArea.value = selectedOpacity;
@@ -8160,6 +8211,7 @@ var CardDesign = (function() {
 
         switch (type) {
             case "text":
+            case "i-text":
                 textOptions.style.display = "inline-block";
                 colorOptions.style.display = "inline-block";
                 globalOptions.style.display = "block";
@@ -8176,6 +8228,12 @@ var CardDesign = (function() {
                 textOptions.style.display = "none";
                 return;
 
+            case "null":
+                globalOptions.style.display = "none";
+                textOptions.style.display = "none";
+                colorOptions.style.display = "inline-block";
+                colorArea.style.backgroundColor = canvasBgColor;
+                return;
             default:
                 globalOptions.style.display = "none";
                 textOptions.style.display = "none";
@@ -8561,7 +8619,7 @@ var CardDesign = (function() {
 
     CardDesign.prototype.saveJson = function() {
         var self = this;
-        var json = self.rasterizeJSON();
+        var json =  {"frontJson" : JSON.stringify(self.front_canvas), "backJson" : JSON.stringify(self.back_canvas)};
         self.history.push({"front" : json.frontJson, "back" : json.backJson});
     }
 
@@ -8623,6 +8681,21 @@ var CardDesign = (function() {
                 console.log(xhr.status + ": " + xhr.responseText);
             }
         });
+    }
+
+    CardDesign.prototype.sendImageData = function(data) {
+        var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}};
+        var type = data.type;
+        var name = data.name;
+        var file = Base64.encode(data.uploadedFile);
+        var value = this.options.field_tasarim_resim.und.length;
+        var sendData = {value:{
+                        "filename": name,
+                        "filemime": type,
+                        "file": file
+                        }};
+        this.options.field_tasarim_resim.und.push(sendData);
+        this.postData("put", "api/tasarim/node/" + this.options.objeId, sendData);
     }
 
     return CardDesign;
